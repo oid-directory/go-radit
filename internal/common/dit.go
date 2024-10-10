@@ -115,6 +115,7 @@ func (r *DIT) ITUT() (root *radir.Registration) {
 	if root = r.tree[0]; root.IsZero() {
 		r.tree[0] = r.profile.NewRegistration(true)
 		r.tree[0].X680().SetN(`0`)
+		r.tree[0].X680().SetIdentifier(`itu-t`)
 		r.tree[0].X680().SetIRI(`/ITU-T`)
 		r.tree[0].X680().SetASN1Notation(`{itu-t(0)}`)
 		r.tree[0].X660().SetUnicodeValue(`ITU-T`)
@@ -134,6 +135,7 @@ func (r *DIT) ISO() (root *radir.Registration) {
 	if root = r.tree[1]; root.IsZero() {
 		r.tree[1] = r.profile.NewRegistration(true)
 		r.tree[1].X680().SetN(`1`)
+		r.tree[1].X680().SetIdentifier(`iso`)
 		r.tree[1].X680().SetIRI(`/ISO`)
 		r.tree[1].X680().SetASN1Notation(`{iso(1)}`)
 		r.tree[1].X660().SetUnicodeValue(`ISO`)
@@ -153,6 +155,7 @@ func (r *DIT) JointISOITUT() (root *radir.Registration) {
 	if root = r.tree[2]; root.IsZero() {
 		r.tree[2] = r.profile.NewRegistration(true)
 		r.tree[2].X680().SetN(`2`)
+		r.tree[2].X680().SetIdentifier(`joint-iso-itu-t`)
 		r.tree[2].X680().SetIRI(`/Joint-ISO-ITU-T`)
 		r.tree[2].X680().SetASN1Notation(`{joint-iso-itu-t(2)}`)
 		r.tree[2].X660().SetUnicodeValue(`Joint-ISO-ITU-T`)
