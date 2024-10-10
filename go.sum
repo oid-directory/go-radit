@@ -1,0 +1,4 @@
+github.com/oid-directory/go-objectid v1.0.7 h1:VjXFk47T3R62kYGDiODHObyVCkZm+bMfNdahQjH3MIU=
+github.com/oid-directory/go-objectid v1.0.7/go.mod h1:oZl3zVrqySlnA+CXaLcwZt1dfe+O7/rsa78WqAdPwOs=
+github.com/oid-directory/go-radir v0.0.2-0.20241009060713-937fb4298c55 h1:URmD89XiZkZlftHMCZspwOmLFP1dVUIEPKNCCxxUOw0=
+github.com/oid-directory/go-radir v0.0.2-0.20241009060713-937fb4298c55/go.mod h1:Cbb+KM9RT2Q2Rsv95SUs2Ff97YhXMECGeG+wYr6ZO1Q=
