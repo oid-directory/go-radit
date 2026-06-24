@@ -4,6 +4,6 @@
 
 Package radit wraps [go-radir](https://github.com/oid-directory/go-radir) to provide a convenient directory information tree abstraction and content parser/generator to assist in the creation of an OID Directory tree.
 
-At present, this package can produce an LDIF (text) dump that contains well over 130000 entries, comprised of both \*[radir.Registration] and \*[radir.Registrant] instances.
+At present, this package can produce an LDIF (text) dump that contains well over 130000 entries, comprised of both `radir.Registration` and `radir.Registrant` instances.
 
 Please note this is a very early release; breaking changes are likely!
