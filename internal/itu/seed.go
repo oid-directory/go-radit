@@ -38,16 +38,16 @@ var Tree []string = []string{
 	"{itu-t(0) data(9) pss(2342) ucl(19200300) pilot(100) pilotObjectClass(4)}",
 	"{itu-t(0) data(9) pss(2342) ucl(19200300) pilot(100) pilotGroups(10)}",
 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) at(1)}",
- 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2)}",
- 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2) 1}",   // "InternetDSNonLeafObject" oc
- 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2) 1 1}", // "MasterDSA" oc
+	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2)}",
+	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2) 1}",   // "InternetDSNonLeafObject" oc
+	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2) 1 1}", // "MasterDSA" oc
 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2) 1 2}", // "SlaveDSA" oc
 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2) 1 3}", // "SubordinateReference" oc
 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2) 1 4}", // "CrossReference" oc
 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2) 1 5}", // "NonSpecificSubordinateReference" oc
- 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2) 2}",   // "ExternalDSObject" oc
- 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) ac-idsp(3)}",
- 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) as-idsp(4)}",
- 	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) ase-replication(5)}",
+	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) oc(2) 2}",   // "ExternalDSObject" oc
+	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) ac-idsp(3)}",
+	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) as-idsp(4)}",
+	"{itu-t(0) data(9) pss(2342) ucl(19200300) internet-dsp(107) ase-replication(5)}",
 	"{itu-t(0) data(9) pss(2342) ucl(19200300) rfc-987-88(200)}",
 }

@@ -51,10 +51,10 @@ inner is a common XML unmarshaling type which is meant to contain data
 related to "registration_rule", "expert" and "note" SMI Numbers XML elements.
 */
 type inner struct {
-	Text     string	`xml:",innerxml"`
+	Text     string `xml:",innerxml"`
 	Title    string `xml:"title,attr"`
 	XRef     []xref `xml:"xref"`
-        FullText string `xml:"-"`
+	FullText string `xml:"-"`
 }
 
 /*
@@ -298,7 +298,7 @@ func descriptionAndOID(descr string) (desc, dot string) {
 			//	break
 			//}
 		}
-		dot = trimR(dot,`.`)
+		dot = trimR(dot, `.`)
 	}
 
 	return
@@ -331,25 +331,25 @@ func (r records) unmarshal(smi *smiRegistry, parent *radir.Registration) {
 				child.X680().SetIdentifier(identifier)
 			}
 
-        		// Process the XRef into one of a few possible
-        		// forms, such as uri, rfc, person, et al.
-        		for _, xr := range rec.XRef {
-        		        xr.process(child,smi)
-                        	if xr.Type == "person" {
-                        	        if athy, found := smi.people[xr.Data]; found {
-                        	                cath := athy.CurrentAuthority()
-                        	                if dedi {
-                        	                        child.X660().SetCurrentAuthorities(athy.DN())
-                        	                } else if comb {
+			// Process the XRef into one of a few possible
+			// forms, such as uri, rfc, person, et al.
+			for _, xr := range rec.XRef {
+				xr.process(child, smi)
+				if xr.Type == "person" {
+					if athy, found := smi.people[xr.Data]; found {
+						cath := athy.CurrentAuthority()
+						if dedi {
+							child.X660().SetCurrentAuthorities(athy.DN())
+						} else if comb {
 							coauth := child.X660().CombinedCurrentAuthority()
-                        	                        coauth.SetEmail(cath.Email())
-                        	                        coauth.SetCN(cath.CN())
-                        	                        coauth.SetO(cath.O())
-                        	                        child.SetDescription(athy.Description())
-                        	                }
-                        	        }
-                        	}
-        		}
+							coauth.SetEmail(cath.Email())
+							coauth.SetCN(cath.CN())
+							coauth.SetO(cath.O())
+							child.SetDescription(athy.Description())
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -387,53 +387,25 @@ func (r *registry) unmarshalRecords() (err error) {
 		parent *radir.Registration = r.smireg.DIT.ISO().Allocate(oid)
 	)
 
-        // Process experts into registrant data
-        //r.processExperts(parent)
-	for _, expert :=range r.experts {
+	// Process experts into registrant data
+	//r.processExperts(parent)
+	for _, expert := range r.experts {
 		parent.X660().SetCurrentAuthorities(expert.DN())
 	}
 
-        // Process the XRef into one of a few possible
-        // forms, such as uri, rfc, person, et al.
-        for _, xr := range r.XRef {
-                xr.process(parent,r.smireg)
-        }
+	// Process the XRef into one of a few possible
+	// forms, such as uri, rfc, person, et al.
+	for _, xr := range r.XRef {
+		xr.process(parent, r.smireg)
+	}
 
-        for _, n := range r.Note {
-                clean := trimS(n.Text)
-                clean = trimL(clean, `\n`)
-                clean = trimR(clean, `\n`)
-                clean = trimR(clean, `\n`)
-
-		start := xml.StartElement{Name:xml.Name{Space:"", Local:"note"}, Attr:[]xml.Attr{}}
-		dec := xml.NewDecoder(newReader(n.Text))
-		if err = n.unmarshalXML(dec,start); errNotEoF(err) {
-			return
-		}
-
-		_ = fmt.Sprintf("---")
-
-                if len(n.FullText) > 0 && clean != "" && !hasPfx(clean,`<`) {
-                        // Don't write pure xml content as reg info.
-                        inf := common.CondenseWHSP(common.RemoveNL(n.FullText))
-                        parent.Supplement().SetInfo(inf)
-                }
-
-		// Output the XRef if needed
-		for _, xr := range n.XRef {
-			if xr.Type == "uri" && n.Title != "" {
-				xr.Content = n.Title
-			} else if xr.Type == "registry" {
-				xr.Type = "uri"
-                		xr.Data = common.IANAAssignmentsPrefix + xr.Data
-			}
-			xr.process(parent, r.smireg)
-		}
+	if err = r.unmarshalRecordNotes(parent); err != nil {
+		return
 	}
 
 	dot := parent.X680().DotNotation()
 	if dot != oid {
-		err = mkerr("Allocation error: " +dot+" != "+oid)
+		err = mkerr("Allocation error: " + dot + " != " + oid)
 		return
 	}
 
@@ -452,104 +424,140 @@ func (r *registry) unmarshalRecords() (err error) {
 	}
 
 	parent.X680().SetASN1Notation(buildASN1Not(sp, path))
-	r.Records.unmarshal(r.smireg,parent)
+	r.Records.unmarshal(r.smireg, parent)
+
+	return
+}
+
+func (r *registry) unmarshalRecordNotes(parent *radir.Registration) (err error) {
+        for _, n := range r.Note {
+                clean := trimS(n.Text)
+                clean = trimL(clean, `\n`)
+                clean = trimR(clean, `\n`)
+                clean = trimR(clean, `\n`)
+
+                start := xml.StartElement{Name: xml.Name{Space: "", Local: "note"}, Attr: []xml.Attr{}}
+                dec := xml.NewDecoder(newReader(n.Text))
+                if err = n.unmarshalXML(dec, start); errNotEoF(err) {
+                        return
+                }
+
+                _ = fmt.Sprintf("---")
+
+                if len(n.FullText) > 0 && clean != "" && !hasPfx(clean, `<`) {
+                        // Don't write pure xml content as reg info.
+                        inf := common.CondenseWHSP(common.RemoveNL(n.FullText))
+                        parent.Supplement().SetInfo(inf)
+                }
+
+                // Output the XRef if needed
+                for _, xr := range n.XRef {
+                        if xr.Type == "uri" && n.Title != "" {
+                                xr.Content = n.Title
+                        } else if xr.Type == "registry" {
+                                xr.Type = "uri"
+                                xr.Data = common.IANAAssignmentsPrefix + xr.Data
+                        }
+                        xr.process(parent, r.smireg)
+                }
+        }
 
 	return
 }
 
 func (r xref) processDataUsers(reg *radir.Registration, smi *smiRegistry) {
-        if r.Data == "" {
-                return
-        }
+	if r.Data == "" {
+		return
+	}
 
-        switch r.Type {
-        case `rfc`,`draft`:
-                reg.Supplement().SetURI(common.RFCURIPrefix +
+	switch r.Type {
+	case `rfc`, `draft`:
+		reg.Supplement().SetURI(common.RFCURIPrefix +
 			r.Data + " " + uc(r.Data))
-        case `rfc-errata`:
-                reg.Supplement().SetURI(common.RFCErrataPrefix +
+	case `rfc-errata`:
+		reg.Supplement().SetURI(common.RFCErrataPrefix +
 			r.Data + " Errata ID " + r.Data)
-        case `uri`:
+	case `uri`:
 		if r.Content != "" {
 			// There may be a link label ...
 			r.Data += " " + r.Content
-                	reg.Supplement().SetURI(r.Data)
+			reg.Supplement().SetURI(r.Data)
 		}
-        case `note`:
-                // TODO :: see if there are other values of significance.
-                if r.Data == `1` {
-                        // This seems to indicate obsolescence and correlates
-                        // to <footnote anchor="1">...</footnote>
-                        reg.Supplement().SetStatus(`OBSOLETE`)
-                } else {
-                        reg.Supplement().SetInfo(r.Data)
-                }
-        	//case `person`:
-                //switch {
-                //case smi.DIT.Profile().Dedicated():
-                //        var (
-                //                ok   bool
-                //                ath  *radir.Registrant
-                //                pers person
-                //        )
+	case `note`:
+		// TODO :: see if there are other values of significance.
+		if r.Data == `1` {
+			// This seems to indicate obsolescence and correlates
+			// to <footnote anchor="1">...</footnote>
+			reg.Supplement().SetStatus(`OBSOLETE`)
+		} else {
+			reg.Supplement().SetInfo(r.Data)
+		}
+		//case `person`:
+		//switch {
+		//case smi.DIT.Profile().Dedicated():
+		//        var (
+		//                ok   bool
+		//                ath  *radir.Registrant
+		//                pers person
+		//        )
 
-                //        if ath = smi.DIT.Registrants().Get(r.Data); !ath.IsZero() {
-                //                // We already manufactured a Registrant
-                //                // instance, so just grab its DN
-                //                reg.X660().SetCurrentAuthorities(ath.DN())
-                //        } else if pers, ok = smi.people[r.Data]; ok {
-                //                // We know this is a legitimate Registrant,
-                //                // but we have not encountered it yet. Let's
-                //                // create the radir.Registrant instance now.
-                //                ath = smi.DIT.Profile().NewRegistrant() // init
+		//        if ath = smi.DIT.Registrants().Get(r.Data); !ath.IsZero() {
+		//                // We already manufactured a Registrant
+		//                // instance, so just grab its DN
+		//                reg.X660().SetCurrentAuthorities(ath.DN())
+		//        } else if pers, ok = smi.people[r.Data]; ok {
+		//                // We know this is a legitimate Registrant,
+		//                // but we have not encountered it yet. Let's
+		//                // create the radir.Registrant instance now.
+		//                ath = smi.DIT.Profile().NewRegistrant() // init
 		//		ath.SetDN(radir.RegistrantDNGenerator)
-                //                dn := ath.DN()
-                //                ath.SetDN(dn)
-                //                reg.X660().SetCurrentAuthorities(dn)
-                //                pers.setAttributes(reg,ath)
+		//                dn := ath.DN()
+		//                ath.SetDN(dn)
+		//                reg.X660().SetCurrentAuthorities(dn)
+		//                pers.setAttributes(reg,ath)
 
-                //                // No need to hold onto the
-                //                // people[r.Data] k/v ...
-                //                delete(smi.people, r.Data)
+		//                // No need to hold onto the
+		//                // people[r.Data] k/v ...
+		//                delete(smi.people, r.Data)
 
-                //                // ... because we store the
-                //                // final form here:
-                //                smi.DIT.Registrants().Push(ath)
-                //        }
+		//                // ... because we store the
+		//                // final form here:
+		//                smi.DIT.Registrants().Push(ath)
+		//        }
 
-                //case reg.Combined():
-                //        if pers, ok := smi.people[r.Data]; ok {
-                //                pers.setAttributes(reg, nil)
-                //        }
-                //}
-        }
+		//case reg.Combined():
+		//        if pers, ok := smi.people[r.Data]; ok {
+		//                pers.setAttributes(reg, nil)
+		//        }
+		//}
+	}
 }
 
 func (r xref) processContentUsers(reg *radir.Registration) {
-        if r.Content==`Not Defined ?` || r.Content == "" {
-                return
-        }
+	if r.Content == `Not Defined ?` || r.Content == "" {
+		return
+	}
 
-        switch r.Type {
-        case `registry`:
-                reg.Supplement().SetInfo(common.RemoveNL(r.Content))
-        case `text`:
-                value := common.CondenseWHSP(common.RemoveNL(r.Content))
-                if eq(value, `obsolete`) {
-                        reg.Supplement().SetStatus(`OBSOLETE`)
-                } else {
-                        reg.Supplement().SetInfo(value)
-                }
-        }
+	switch r.Type {
+	case `registry`:
+		reg.Supplement().SetInfo(common.RemoveNL(r.Content))
+	case `text`:
+		value := common.CondenseWHSP(common.RemoveNL(r.Content))
+		if eq(value, `obsolete`) {
+			reg.Supplement().SetStatus(`OBSOLETE`)
+		} else {
+			reg.Supplement().SetInfo(value)
+		}
+	}
 }
 
 func (r xref) process(reg *radir.Registration, smi *smiRegistry) {
-        switch r.Type {
-        case `registry`,`text`:
-                r.processContentUsers(reg)
-        case `rfc`,`rfc-errata`,`draft`,`note`,`uri`,`person`:
-                r.processDataUsers(reg, smi)
-        }
+	switch r.Type {
+	case `registry`, `text`:
+		r.processContentUsers(reg)
+	case `rfc`, `rfc-errata`, `draft`, `note`, `uri`, `person`:
+		r.processDataUsers(reg, smi)
+	}
 }
 
 //func (r person) setAttributes(reg *radir.Registration, ath *radir.Registrant) {
@@ -643,31 +651,31 @@ func (r *smiRegistry) unmarshal() (err error) {
 }
 
 func (r *registry) gatherExperts() {
-	sp := split(r.Expert.Text,`,`)
+	sp := split(r.Expert.Text, `,`)
 
-        for _, sl := range sp {
-                var desc string
-                var orig string = trimS(sl)
-                sl = trimS(common.CondenseWHSP(sl))
-                if idx := sidx(sl,` (`); idx != -1 {
-                        desc = `IANA, ` + trimR(sl[idx+2:],`)`)
-                        sl = sl[:idx]
-                } else {
-                        desc = `IANA`
-                }
+	for _, sl := range sp {
+		var desc string
+		var orig string = trimS(sl)
+		sl = trimS(common.CondenseWHSP(sl))
+		if idx := sidx(sl, ` (`); idx != -1 {
+			desc = `IANA, ` + trimR(sl[idx+2:], `)`)
+			sl = sl[:idx]
+		} else {
+			desc = `IANA`
+		}
 
-                if sl != "" {
+		if sl != "" {
 			if _, found := r.smireg.people[orig]; !found {
-                		athy := r.smireg.DIT.Profile().NewRegistrant()
-                		athy.SetDN(radir.RegistrantDNGenerator)
-                		athy.CurrentAuthority().SetCN(sl)
-                		athy.CurrentAuthority().SetO(desc)
-                		r.smireg.people[orig] = athy
+				athy := r.smireg.DIT.Profile().NewRegistrant()
+				athy.SetDN(radir.RegistrantDNGenerator)
+				athy.CurrentAuthority().SetCN(sl)
+				athy.CurrentAuthority().SetO(desc)
+				r.smireg.people[orig] = athy
 				r.smireg.DIT.Registrants().Push(athy)
 				r.experts = append(r.experts, athy)
 			}
 		}
-        }
+	}
 
 	for i := 0; i < len(r.Registries); i++ {
 		r.Registries[i].smireg = r.smireg
@@ -676,46 +684,46 @@ func (r *registry) gatherExperts() {
 }
 
 func (r *smiRegistry) gatherRegistrants() {
-        // Process and load all known <person>
-        // elements into temporary storage ...
-        for _, person := range r.People {
+	// Process and load all known <person>
+	// elements into temporary storage ...
+	for _, person := range r.People {
 		if _, found := r.people[person.ID]; !found {
 			regi := r.DIT.Profile().NewRegistrant()
 
-                	regi.SetDN(radir.RegistrantDNGenerator)
-                	regi.CurrentAuthority().SetCN(person.Name)
-                	regi.SetDescription(person.Name)
+			regi.SetDN(radir.RegistrantDNGenerator)
+			regi.CurrentAuthority().SetCN(person.Name)
+			regi.SetDescription(person.Name)
 
-		        if uri := person.URI; len(uri) > 0 {
-		                if hasPfx(uri,`mailto:`) {
-		                        // URI is an email address. We'll strip-off
-		                        // the mailto: and replace amp with com-at.
-		                        uri = uri[7:]
-		                        uri = rplc(uri,`&`,`@`)
-		                        uri = rplc(uri,`%25`,`%`)
-		                        regi.CurrentAuthority().SetEmail(uri)
-		                } else {
-		                        // Sometimes a URI is just a URI.
-		                        regi.CurrentAuthority().SetURI(uri)
-		                }
-		        }
+			if uri := person.URI; len(uri) > 0 {
+				if hasPfx(uri, `mailto:`) {
+					// URI is an email address. We'll strip-off
+					// the mailto: and replace amp with com-at.
+					uri = uri[7:]
+					uri = rplc(uri, `&`, `@`)
+					uri = rplc(uri, `%25`, `%`)
+					regi.CurrentAuthority().SetEmail(uri)
+				} else {
+					// Sometimes a URI is just a URI.
+					regi.CurrentAuthority().SetURI(uri)
+				}
+			}
 
-		        if len(person.Name) > 0 {
-		                // TODO :: this may need to be expanded if there are
-		                // other official body "names" besides IANA (not
-		                // individual people) found in the SMI registries.
-		                if person.Name == `IANA` {
-		                        regi.CurrentAuthority().SetO(person.Name)
-		                } else {
-		                        // Assume its a person's name.
-		                        regi.CurrentAuthority().SetCN(person.Name)
-		                }
-		        }
+			if len(person.Name) > 0 {
+				// TODO :: this may need to be expanded if there are
+				// other official body "names" besides IANA (not
+				// individual people) found in the SMI registries.
+				if person.Name == `IANA` {
+					regi.CurrentAuthority().SetO(person.Name)
+				} else {
+					// Assume its a person's name.
+					regi.CurrentAuthority().SetCN(person.Name)
+				}
+			}
 
-                	r.people[person.ID] = regi
+			r.people[person.ID] = regi
 			r.DIT.Registrants().Push(regi)
 		}
-        }
+	}
 
 	for _, regi := range r.Registries {
 		regi.smireg = r
@@ -844,4 +852,3 @@ func buildASN1Not(sp, path []string) (anot string) {
 
 	return
 }
-

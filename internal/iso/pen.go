@@ -24,7 +24,7 @@ penRegistry facilitates storage and interaction with any number of [PEN]
 instances previously parsed from IANA's PEN Registry.
 */
 type penRegistry struct {
-	Numbers   []pen
+	Numbers []pen
 	*common.DIT
 }
 
@@ -69,7 +69,7 @@ func (r *penRegistry) unmarshal() (err error) {
 	}
 
 	if parent.X680().ASN1Notation() == "" {
-		parent.X680().SetASN1Notation(`{`+entASNPfx+`}`)
+		parent.X680().SetASN1Notation(`{` + entASNPfx + `}`)
 	}
 
 	for _, ent := range r.Numbers {
@@ -84,7 +84,7 @@ func (r *penRegistry) unmarshal() (err error) {
 		}
 
 		if child.X680().N() == `56521` {
-			// Load Jesse Coretta's registrations	
+			// Load Jesse Coretta's registrations
 			r.loadJesseCoretta()
 		}
 
@@ -103,45 +103,45 @@ func (r *penRegistry) loadJesseCoretta() {
 func (r pen) handleRegistrant(child *radir.Registration, dit *common.DIT) (err error) {
 
 	if dit.Profile().Dedicated() {
-	        // Process DEDICATED registrants
-	        athy := dit.Profile().NewRegistrant()
-	        athy.SetDN(radir.RegistrantDNGenerator)
-	        child.X660().SetCurrentAuthorities(athy.DN())
-	        dit.Registrants().Push(athy)
-	
-	        for _, strukt := range []struct {
-	                Field string
-	                Func  func(...any) error
-	        }{
-	                {r.Name, athy.CurrentAuthority().SetO},
-	                {r.Name, athy.SetDescription},
-	                {r.Name, child.SetDescription},
-	                {r.Contact, athy.CurrentAuthority().SetCN},
-	                {r.Email, athy.CurrentAuthority().SetEmail},
-	        } {
-	                if strukt.Field != `---none---` && strukt.Field != "" {
-	                        if err = strukt.Func(strukt.Field); err != nil {
-	                                break
-	                        }
-	                }
-	        }
+		// Process DEDICATED registrants
+		athy := dit.Profile().NewRegistrant()
+		athy.SetDN(radir.RegistrantDNGenerator)
+		child.X660().SetCurrentAuthorities(athy.DN())
+		dit.Registrants().Push(athy)
+
+		for _, strukt := range []struct {
+			Field string
+			Func  func(...any) error
+		}{
+			{r.Name, athy.CurrentAuthority().SetO},
+			{r.Name, athy.SetDescription},
+			{r.Name, child.SetDescription},
+			{r.Contact, athy.CurrentAuthority().SetCN},
+			{r.Email, athy.CurrentAuthority().SetEmail},
+		} {
+			if strukt.Field != `---none---` && strukt.Field != "" {
+				if err = strukt.Func(strukt.Field); err != nil {
+					break
+				}
+			}
+		}
 	} else if dit.Profile().Combined() {
-        	// Process COMBINED registrants
-        	for _, strukt := range []struct {
-        	        Field string
-        	        Func  func(...any) error
-        	}{
-        	        {r.Name, child.X660().CombinedCurrentAuthority().SetO},
-        	        {r.Name, child.SetDescription},
-        	        {r.Contact, child.X660().CombinedCurrentAuthority().SetCN},
-        	        {r.Email, child.X660().CombinedCurrentAuthority().SetEmail},
-        	} {
-        	        if strukt.Field != `---none---` && strukt.Field != "" {
-        	                if err = strukt.Func(strukt.Field); err != nil {
-        	                        break
-        	                }
-        	        }
-        	}
+		// Process COMBINED registrants
+		for _, strukt := range []struct {
+			Field string
+			Func  func(...any) error
+		}{
+			{r.Name, child.X660().CombinedCurrentAuthority().SetO},
+			{r.Name, child.SetDescription},
+			{r.Contact, child.X660().CombinedCurrentAuthority().SetCN},
+			{r.Email, child.X660().CombinedCurrentAuthority().SetEmail},
+		} {
+			if strukt.Field != `---none---` && strukt.Field != "" {
+				if err = strukt.Func(strukt.Field); err != nil {
+					break
+				}
+			}
+		}
 	}
 
 	return
@@ -181,7 +181,7 @@ func LoadPENRegistry(r *common.DIT, filename string) error {
 	var (
 		ents *penRegistry = &penRegistry{
 			Numbers: make([]pen, 0),
-			DIT:	 r,
+			DIT:     r,
 		}
 		ent pen
 	)

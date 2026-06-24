@@ -21,7 +21,7 @@ var (
 	eq        func(string, string) bool           = strings.EqualFold
 	split     func(string, string) []string       = strings.Split
 	join      func([]string, string) string       = strings.Join
-        sidx      func(string, string) int            = strings.Index   
+	sidx      func(string, string) int            = strings.Index
 	idxr      func(string, rune) int              = strings.IndexRune
 	trimS     func(string) string                 = strings.TrimSpace
 	trimL     func(string, string) string         = strings.TrimLeft
@@ -31,7 +31,7 @@ var (
 	hasSfx    func(string, string) bool           = strings.HasSuffix
 	repeat    func(string, int) string            = strings.Repeat
 	atoi      func(string) (int, error)           = strconv.Atoi
-	itoa      func(int) (string)                  = strconv.Itoa
+	itoa      func(int) string                    = strconv.Itoa
 	rplc      func(string, string, string) string = strings.ReplaceAll
 	open      func(string) (*os.File, error)      = os.Open
 	ctns      func(string, string) bool           = strings.Contains
@@ -46,7 +46,6 @@ var (
 func newBuilder() strings.Builder { return strings.Builder{} }
 
 var (
-	eof error = io.EOF
+	eof            error = io.EOF
 	nilInstanceErr error = mkerr("Instance or receiver is nil; must initialize")
 )
-

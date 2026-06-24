@@ -30,7 +30,7 @@ var (
 	hasSfx    func(string, string) bool           = strings.HasSuffix
 	repeat    func(string, int) string            = strings.Repeat
 	atoi      func(string) (int, error)           = strconv.Atoi
-	itoa      func(int) (string)                  = strconv.Itoa
+	itoa      func(int) string                    = strconv.Itoa
 	rplc      func(string, string, string) string = strings.ReplaceAll
 	open      func(string) (*os.File, error)      = os.Open
 	ctns      func(string, string) bool           = strings.Contains
@@ -43,7 +43,6 @@ var (
 )
 
 var (
-	eof error = io.EOF
+	eof            error = io.EOF
 	nilInstanceErr error = mkerr("Instance or receiver is nil; must initialize")
 )
-
