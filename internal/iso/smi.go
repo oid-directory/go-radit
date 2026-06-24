@@ -430,37 +430,37 @@ func (r *registry) unmarshalRecords() (err error) {
 }
 
 func (r *registry) unmarshalRecordNotes(parent *radir.Registration) (err error) {
-        for _, n := range r.Note {
-                clean := trimS(n.Text)
-                clean = trimL(clean, `\n`)
-                clean = trimR(clean, `\n`)
-                clean = trimR(clean, `\n`)
+	for _, n := range r.Note {
+		clean := trimS(n.Text)
+		clean = trimL(clean, `\n`)
+		clean = trimR(clean, `\n`)
+		clean = trimR(clean, `\n`)
 
-                start := xml.StartElement{Name: xml.Name{Space: "", Local: "note"}, Attr: []xml.Attr{}}
-                dec := xml.NewDecoder(newReader(n.Text))
-                if err = n.unmarshalXML(dec, start); errNotEoF(err) {
-                        return
-                }
+		start := xml.StartElement{Name: xml.Name{Space: "", Local: "note"}, Attr: []xml.Attr{}}
+		dec := xml.NewDecoder(newReader(n.Text))
+		if err = n.unmarshalXML(dec, start); errNotEoF(err) {
+			return
+		}
 
-                _ = fmt.Sprintf("---")
+		_ = fmt.Sprintf("---")
 
-                if len(n.FullText) > 0 && clean != "" && !hasPfx(clean, `<`) {
-                        // Don't write pure xml content as reg info.
-                        inf := common.CondenseWHSP(common.RemoveNL(n.FullText))
-                        parent.Supplement().SetInfo(inf)
-                }
+		if len(n.FullText) > 0 && clean != "" && !hasPfx(clean, `<`) {
+			// Don't write pure xml content as reg info.
+			inf := common.CondenseWHSP(common.RemoveNL(n.FullText))
+			parent.Supplement().SetInfo(inf)
+		}
 
-                // Output the XRef if needed
-                for _, xr := range n.XRef {
-                        if xr.Type == "uri" && n.Title != "" {
-                                xr.Content = n.Title
-                        } else if xr.Type == "registry" {
-                                xr.Type = "uri"
-                                xr.Data = common.IANAAssignmentsPrefix + xr.Data
-                        }
-                        xr.process(parent, r.smireg)
-                }
-        }
+		// Output the XRef if needed
+		for _, xr := range n.XRef {
+			if xr.Type == "uri" && n.Title != "" {
+				xr.Content = n.Title
+			} else if xr.Type == "registry" {
+				xr.Type = "uri"
+				xr.Data = common.IANAAssignmentsPrefix + xr.Data
+			}
+			xr.process(parent, r.smireg)
+		}
+	}
 
 	return
 }

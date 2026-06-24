@@ -18,11 +18,11 @@ const (
 	randIDSize = 8
 )
 
-const (                                                                 
-        // RFCURLPrefix contains the URI prefix for use with RFCs and   
-        // Internet-Drafts referenced by various SMI registrations.     
-        RFCURIPrefix = `https://datatracker.ietf.org/doc/html/`         
-        RFCErrataPrefix = `https://www.rfc-editor.org/errata_search.php?eid=`
+const (
+	// RFCURLPrefix contains the URI prefix for use with RFCs and
+	// Internet-Drafts referenced by various SMI registrations.
+	RFCURIPrefix          = `https://datatracker.ietf.org/doc/html/`
+	RFCErrataPrefix       = `https://www.rfc-editor.org/errata_search.php?eid=`
 	IANAAssignmentsPrefix = `https://iana.org/assignments/`
 )
 

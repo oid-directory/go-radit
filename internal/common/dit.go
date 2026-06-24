@@ -42,7 +42,7 @@ NewDIT returns a freshly initialized instance of *[DIT].
 func NewDIT(profile *radir.DITProfile) *DIT {
 	aths := make(radir.Registrants, 0)
 	return &DIT{
-		aths: &aths,
+		aths:    &aths,
 		profile: profile,
 	}
 }
@@ -199,7 +199,7 @@ The correct syntax for the input string values is the ITU-T Rec. X.680
 ObjectIdentifierValue form (or "ASN.1 Notation").  For example, for the
 OID "1.3.6.1.4", the proper form would appear as:
 
-  {iso(1) identified-organization(3) dod(6) internet(1) private(4)}
+	{iso(1) identified-organization(3) dod(6) internet(1) private(4)}
 */
 func (r *DIT) Prime(n int, nodes ...string) {
 	if 0 <= n && n <= 2 {
@@ -214,8 +214,7 @@ func (r *DIT) Prime(n int, nodes ...string) {
 LoadCSV returns an error following an attempt to process the input *[csv.Reader]
 instance using the input closure instance. The result is
 
-
- a general-use method for loading Comma-Separated Value data
+	a general-use method for loading Comma-Separated Value data
 */
 func (r *DIT) LoadCSV(reader *csv.Reader, closure func() any) (err error) {
 	if reader == nil {
