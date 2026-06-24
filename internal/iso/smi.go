@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/oid-directory/go-radir"
+	"github.com/oid-directory/go-radir/oid"
 	"github.com/oid-directory/go-radit/internal/common"
 )
 
@@ -151,7 +152,7 @@ func (r record) processValue() (dot, number, rangeTerminus string, err error) {
 	case common.IsNumber(r.Value):
 		number = r.Value
 		// ok as-is
-	case radir.IsNumericOID(r.Value):
+	case oid.IsDotNotation(r.Value):
 		// in some cases, particularly in the ldap-parameters.xml, a
 		// full OID is present where we normally find number form
 		// values. Thus, we'll chop off the leaf and discard the rest.
@@ -175,8 +176,8 @@ func (r *record) processIdentifier(dot string) (identifier string) {
 			}
 		}
 
-		if identifier = legalizeIdentifier(identifier); !radir.IsIdentifier(identifier) {
-			if alt := legalizeIdentifier(r.Description); radir.IsIdentifier(alt) {
+		if identifier = legalizeIdentifier(identifier); !oid.IsNameForm(identifier) {
+			if alt := legalizeIdentifier(r.Description); oid.IsNameForm(alt) {
 				identifier = alt
 			} else {
 				identifier = ``
@@ -287,7 +288,7 @@ func descriptionAndOID(descr string) (desc, dot string) {
 		sp := split(desc, ` `)
 		for i := 0; i < len(sp); i++ {
 			sp[i] = trimR(sp[i], `.`)
-			if radir.IsNumericOID(sp[i]) {
+			if oid.IsDotNotation(sp[i]) {
 				dot = sp[i]
 			} else if ds := split(sp[i], `.`); len(ds) > 0 {
 				desc = sp[i]
@@ -753,7 +754,7 @@ as IEEE802.4, which is ILLEGAL as an X.680 identifier (name form),
 and replace or augment the value for compliance.
 */
 func legalizeIdentifier(in string) (out string) {
-	if radir.IsIdentifier(in) || len(in) == 0 {
+	if oid.IsNameForm(in) || len(in) == 0 {
 		out = in
 		return
 	}
@@ -761,7 +762,7 @@ func legalizeIdentifier(in string) (out string) {
 	// Make sure this isn't a "re-allocated" OID
 	if ctns(lc(in), `retained by`) {
 		if cut, found := cutPfx(lc(in), `retained by`); found {
-			if in = trimS(cut); radir.IsIdentifier(in) {
+			if in = trimS(cut); oid.IsNameForm(in) {
 				out = in
 				return
 			}
@@ -780,17 +781,17 @@ func legalizeIdentifier(in string) (out string) {
 	// try each value
 	if ins := split(trimS(in), ` `); len(ins) > 1 {
 		for _, try := range ins {
-			if tried := legalizeIdentifier(try); radir.IsIdentifier(tried) {
+			if tried := legalizeIdentifier(try); oid.IsNameForm(tried) {
 				out = tried
 				return
 			}
 		}
-	} else if tweaked := rplc(lc(ins[0]), `_`, `-`); radir.IsIdentifier(tweaked) {
+	} else if tweaked := rplc(lc(ins[0]), `_`, `-`); oid.IsNameForm(tweaked) {
 		// Some names are valid simply by folding
 		// case to lower and swapping underscores
 		// with dashes.
 		out = tweaked
-	} else if tweaked = rplc(lc(ins[0]), `.`, ``); radir.IsIdentifier(tweaked) {
+	} else if tweaked = rplc(lc(ins[0]), `.`, ``); oid.IsNameForm(tweaked) {
 		// If simply removing dots and folding the
 		// case to lower revealed a valid identifier
 		// then use it and bail out. Note that if the
