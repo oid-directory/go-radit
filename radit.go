@@ -28,7 +28,7 @@ func (r *RADIT) IsZero() bool {
 }
 
 /*
-PrimeITUT loads the receiver with preliminary *radit.Registration
+PrimeITUT loads the receiver with preliminary *[radit.Registration]
 instances which belong to the "itu-t" root.
 */
 func (r *RADIT) PrimeITUT() {
@@ -38,7 +38,7 @@ func (r *RADIT) PrimeITUT() {
 }
 
 /*
-PrimeISO loads the receiver with preliminary *radit.Registration
+PrimeISO loads the receiver with preliminary *[radit.Registration]
 instances which belong to the "iso" root.
 */
 func (r *RADIT) PrimeISO() {
@@ -48,7 +48,7 @@ func (r *RADIT) PrimeISO() {
 }
 
 /*
-PrimeJointISOITUT loads the receiver with preliminary *radit.Registration
+PrimeJointISOITUT loads the receiver with preliminary *[radit.Registration]
 instances which belong to the "joint-iso-itu-t" root.
 */
 func (r *RADIT) PrimeJointISOITUT() {
