@@ -74,8 +74,8 @@ Import returns an error following an attempt to load the contents specified
 within the input [ImportList] instance into the receiver instance.
 */
 func (r *RADIT) Import(imp ImportList) (err error) {
-	if imp == nil {
-		errors.New("ImportList instance is nil, aborting import")
+	if imp == nil || len(imp) == 0 {
+		err = errors.New("ImportList instance is nil, aborting import")
 		return
 	}
 
