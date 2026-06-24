@@ -2,6 +2,8 @@
 
 [![RADIR](https://img.shields.io/badge/RA_DIR_(I--D)-red?style=flat-square&label=%F0%9F%93%84&cacheSeconds=86400&link=https%3A%2F%2Fdatatracker.ietf.org%2Fdoc%2Fhtml%2Fdraft-coretta-oiddir-roadmap)](https://datatracker.ietf.org/doc/html/draft-coretta-oiddir-roadmap) [![RADIT](https://img.shields.io/badge/RA_DIT_(I--D)-red?style=flat-square&label=%F0%9F%93%84&cacheSeconds=86400&link=https%3A%2F%2Fdatatracker.ietf.org%2Fdoc%2Fhtml%2Fdraft-coretta-oiddir-radit)](https://datatracker.ietf.org/doc/html/draft-coretta-oiddir-radit) [![RADUA](https://img.shields.io/badge/RA_DUA_(I--D)-red?style=flat-square&label=%F0%9F%93%84&cacheSeconds=86400&link=https%3A%2F%2Fdatatracker.ietf.org%2Fdoc%2Fhtml%2Fdraft-coretta-oiddir-radua)](https://datatracker.ietf.org/doc/html/draft-coretta-oiddir-radua) [![RADSA](https://img.shields.io/badge/RA_DSA_(I--D)-red?style=flat-square&label=%F0%9F%93%84&cacheSeconds=86400&link=https%3A%2F%2Fdatatracker.ietf.org%2Fdoc%2Fhtml%2Fdraft-coretta-oiddir-radsa)](https://datatracker.ietf.org/doc/html/draft-coretta-oiddir-radsa) [![RASCHEMA](https://img.shields.io/badge/RA_SCHEMA_(I--D)-red?style=flat-square&label=%F0%9F%93%84&cacheSeconds=86400&link=https%3A%2F%2Fdatatracker.ietf.org%2Fdoc%2Fhtml%2Fdraft-coretta-oiddir-schema)](https://datatracker.ietf.org/doc/html/draft-coretta-oiddir-schema)
 
-Package radit implements various subsets of the [RADIT Internet-Draft](https://datatracker.ietf.org/doc/html/draft-coretta-oiddir-radit).
+Package radit wraps [go-radir](https://github.com/oid-directory/go-radir) to provide a convenient directory information tree abstraction and content parser/generator to assist in the creation of an OID Directory tree.
 
-Note that this is a very early release; breaking changes are likely!
+At present, this package can produce an LDIF (text) dump that contains well over 130000 entries, comprised of both \*[radir.Registration] and \*[radir.Registrant] instances.
+
+Please note this is a very early release; breaking changes are likely!
