@@ -14,7 +14,7 @@ func main() {
 	// Naturally, update the directory paths below to reference
 	// something that actually exists on your system :)
 	//
-        // $ cd ~/dev/tmp
+	// $ cd ~/dev/tmp
 	// $ wget -O smi.xml https://www.iana.org/assignments/smi-numbers/smi-numbers.xml
 	// $ wget -O ldap.xml https://www.iana.org/assignments/ldap-parameters/ldap-parameters.xml
 	// $ wget -O pen.txt https://www.iana.org/assignments/enterprise-numbers.txt
