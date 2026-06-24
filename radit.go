@@ -105,8 +105,8 @@ Write returns an instance of *[bytes.Buffer] containing LDIF content present
 within the receive instance.
 
 The following steps are pretty costly, but are normally used in a
-"one-in-a-lifetime context" to seed a directory tree with entries. Keep
-in mind that OIDs rarely change.
+"once-in-a-lifetime context" to seed a new directory tree with entries.
+Keep in mind that OIDs rarely change.
 */
 func (r *RADIT) Write(sortByNumberForm, spatialXY, subentries bool) (buf *bytes.Buffer) {
 
