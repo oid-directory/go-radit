@@ -79,21 +79,20 @@ func (r *RADIT) Import(imp ImportList) (err error) {
 		return
 	}
 
-	if file, specified := imp[`smifile`]; specified {
-		if err = iso.LoadSMIRegistry(r.dit, file); err != nil {
-			return
-		}
+	type index struct {
+		file string
+		funk func(*common.DIT, string) error
 	}
 
-	if file, specified := imp[`ldapfile`]; specified {
-		if err = iso.LoadSMIRegistry(r.dit, file); err != nil {
-			return
-		}
+	indices := []index{
+		{`smifile`, iso.LoadSMIRegistry},
+		{`ldapfile`, iso.LoadSMIRegistry},
+		{`penfile`, iso.LoadPENRegistry},
 	}
 
-	if file, specified := imp[`penfile`]; specified {
-		if err = iso.LoadPENRegistry(r.dit, file); err != nil {
-			return
+	for i := 0; i < len(indices) && err == nil; i++ {
+		if file, specified := imp[indices[i].file]; specified {
+			err = indices[i].funk(r.dit, file)
 		}
 	}
 
@@ -104,9 +103,11 @@ func (r *RADIT) Import(imp ImportList) (err error) {
 Write returns an instance of *[bytes.Buffer] containing LDIF content present
 within the receive instance.
 
-The following steps are pretty costly, but are normally used in a
-"once-in-a-lifetime context" to seed a new directory tree with entries.
-Keep in mind that OIDs rarely change.
+Use of this method is pretty costly, but is intended for a "once-in-a-lifetime
+context" to seed a new directory tree with entries. Keep in mind that OIDs rarely
+change.
+
+See _examples/main.go for a demonstration of this method.
 */
 func (r *RADIT) Write(sortByNumberForm, spatialXY, subentries bool) (buf *bytes.Buffer) {
 

@@ -1,0 +1,3111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="smi-numbers.xsl"?>
+<?xml-model href="smi-numbers.rng" schematypens="http://relaxng.org/ns/structure/1.0" ?>
+<registry xmlns="http://www.iana.org/assignments" id="smi-numbers">
+  <title>Structure of Management Information (SMI) Numbers (MIB Module Registrations)</title>
+  <updated>2026-06-23</updated>
+  
+ 
+  
+  <note>For the management of hosts and gateways on the Internet a data
+structure for the information has been defined.  This data structure
+should be used with any of several possible management protocols, such
+as the "Simple Network Management Protocol" (SNMP) <xref type="rfc" data="rfc1157"/>, or the
+"Common Management Information Protocol over TCP" (CMOT) <xref type="rfc" data="rfc1095"/>.
+
+The data structure is the "Structure and Identification of Management
+Information for TCP/IP-based Internets" (SMI) <xref type="rfc" data="rfc1155"/>, and the
+"Management Information Base for Network Management of TCP/IP-based
+Internets" (MIB-II) <xref type="rfc" data="rfc1213"/>.
+
+The SMI includes the provision for parameters or codes to indicate
+experimental or private data structures.  These parameter assignments
+are listed here.
+
+The older "Simple Gateway Monitoring Protocol" (SGMP) <xref type="rfc" data="rfc1028"/> also
+defined a data structure.  The parameter assignments used with SGMP
+are included here for historical completeness.
+
+The network management object identifiers are under the iso (1), org
+(3), dod (6), internet (1), or 1.3.6.1, branch of the name space.
+
+1.3 is listed below as "org" in accordance with RFC 1157.  In the OID 
+specification, ITU-T recommendation X.660, the ASN.1 notation for 1.3 
+is "identified-organization".
+
+1                   iso
+1.3                 org
+1.3.6               dod
+1.3.6.1             internet
+1.3.6.1.1           directory
+1.3.6.1.2           mgmt
+1.3.6.1.2.1         mib-2
+1.3.6.1.2.1.2.2.1.3 ifType
+1.3.6.1.2.1.10      transmission
+1.3.6.1.2.1.10.23   transmissionppp
+1.3.6.1.2.1.27      application
+1.3.6.1.2.1.28      mta
+1.3.6.1.2.2         pib
+1.3.6.1.3           experimental
+1.3.6.1.4           private
+1.3.6.1.4.1         enterprise
+1.3.6.1.5           security
+1.3.6.1.6           SNMPv2
+1.3.6.1.6.1         snmpDomains
+1.3.6.1.6.2         snmpProxys
+1.3.6.1.6.3         snmpModules
+1.3.6.1.7           mail
+1.3.6.1.8           features
+</note>
+  <registry id="smi-numbers-1">
+    <title>SMI Network Management Directory Codes</title>
+    <description>iso.org.dod.internet.directory (1.3.6.1.1.)</description>
+    <note>Please see: <xref type="registry" data="ldap-parameters"/></note>
+  </registry>
+  
+  <registry id="smi-numbers-2">
+    <title>SMI Network Management MGMT Codes</title>
+    <xref type="rfc" data="rfc2578"/>
+    <registration_rule>Not Defined ?</registration_rule>
+    <description>iso.org.dod.internet.mgmt (1.3.6.1.2.)</description>
+    <record date="1995-06">
+      <value>0</value>
+      <name>Reserved</name>
+      <description>Reserved</description>
+      <xref type="person" data="IANA"/>
+    </record>
+    <record date="1998-04">
+      <value>1</value>
+      <name>mib-2</name>
+      <description>MIB</description>
+      <xref type="person" data="Keith_McCloghrie"/>
+    </record>
+    <record>
+      <value>2</value>
+      <name>pib</name>
+      <description>PIB</description>
+      <xref type="rfc" data="rfc3159"/>
+    </record>
+    
+    <registry id="smi-numbers-3">
+      <title>SMI Network Management MGMT Codes Internet-standard MIB</title>
+      <xref type="rfc" data="rfc1213"/>
+      <xref type="rfc" data="rfc2578"/>
+      <registration_rule>RFC Required</registration_rule>
+      <description>iso.org.dod.internet.mgmt.mib-2 (1.3.6.1.2.1)</description>
+      <record date="1995-06">
+        <value>0</value>
+        <name>Reserved</name>
+        <description>Reserved</description>
+        <xref type="person" data="IANA"/>
+      </record>
+      <record>
+        <value>1</value>
+        <name>system</name>
+        <description>System</description>
+        <xref type="rfc" data="rfc1213"/>
+      </record>
+      <record>
+        <value>2</value>
+        <name>interfaces</name>
+        <description>Interfaces</description>
+        <xref type="rfc" data="rfc1213"/>
+      </record>
+      <record>
+        <value>3</value>
+        <name>at</name>
+        <description>Address Translation</description>
+        <xref type="rfc" data="rfc1213"/>
+      </record>
+      <record>
+        <value>4</value>
+        <name>ip</name>
+        <description>Internet Protocol</description>
+        <xref type="rfc" data="rfc4293"/>
+      </record>
+      <record>
+        <value>5</value>
+        <name>icmp</name>
+        <description>Internet Control Message</description>
+        <xref type="rfc" data="rfc4293"/>
+      </record>
+      <record>
+        <value>6</value>
+        <name>tcp</name>
+        <description>Transmission Control Protocol</description>
+        <xref type="rfc" data="rfc4022"/>
+      </record>
+      <record>
+        <value>7</value>
+        <name>udp</name>
+        <description>User Datagram Protocol</description>
+        <xref type="rfc" data="rfc4113"/>
+      </record>
+      <record>
+        <value>8</value>
+        <name>egp</name>
+        <description>Exterior Gateway Protocol</description>
+        <xref type="rfc" data="rfc1213"/>
+      </record>
+      <record>
+        <value>9</value>
+        <name>cmot</name>
+        <description>CMIP over TCP</description>
+        <xref type="rfc" data="rfc1213"/>
+      </record>
+      <record>
+        <value>10</value>
+        <name>transmission</name>
+        <description>Transmission</description>
+        <xref type="rfc" data="rfc1213"/>
+      </record>
+      <record>
+        <value>11</value>
+        <name>snmp</name>
+        <description>Simple Network Management</description>
+        <xref type="rfc" data="rfc1213"/>
+      </record>
+      <record>
+        <value>12</value>
+        <name>GenericIF</name>
+        <description>Generic Interface Extensions</description>
+        <xref type="rfc" data="rfc1229"/>
+        <xref type="rfc" data="rfc1239"/>
+      </record>
+      <record>
+        <value>13</value>
+        <name>Appletalk</name>
+        <description>Appletalk Networking</description>
+        <xref type="rfc" data="rfc1742"/>
+      </record>
+      <record>
+        <value>14</value>
+        <name>ospf</name>
+        <description>Open Shortest Path First</description>
+        <xref type="rfc" data="rfc1253"/>
+        <xref type="person" data="Fred_Baker"/>
+      </record>
+      <record>
+        <value>15</value>
+        <name>bgp</name>
+        <description>Border Gateway Protocol</description>
+        <xref type="rfc" data="rfc4273"/>
+      </record>
+      <record>
+        <value>16</value>
+        <name>rmon</name>
+        <description>Remote Network Monitoring</description>
+        <xref type="rfc" data="rfc2819"/>
+      </record>
+      <record>
+        <value>17</value>
+        <name>bridge</name>
+        <description>Bridge Objects</description>
+        <xref type="rfc" data="rfc4188"/>
+      </record>
+      <record>
+        <value>18</value>
+        <name>DecnetP4</name>
+        <description>Decnet Phase 4</description>
+        <xref type="rfc" data="rfc1559"/>
+        <xref type="person" data="Jon_Saperia"/>
+      </record>
+      <record>
+        <value>19</value>
+        <name>Character</name>
+        <description>Character Streams</description>
+        <xref type="rfc" data="rfc1658"/>
+      </record>
+      <record>
+        <value>20</value>
+        <name>snmpParties</name>
+        <description>SNMP Parties</description>
+        <xref type="rfc" data="rfc1353"/>
+      </record>
+      <record>
+        <value>21</value>
+        <name>snmpSecrets</name>
+        <description>SNMP Secrets</description>
+        <xref type="rfc" data="rfc1353"/>
+      </record>
+      <record>
+        <value>22</value>
+        <name>snmpDot3RptrMgt</name>
+        <xref type="rfc" data="rfc2108"/>
+      </record>
+      <record>
+        <value>23</value>
+        <name>rip-2</name>
+        <description>Routing Information Protocol</description>
+        <xref type="rfc" data="rfc1724"/>
+      </record>
+      <record>
+        <value>24</value>
+        <name>ident</name>
+        <description>Identification Protocol</description>
+        <xref type="rfc" data="rfc1414"/>
+      </record>
+      <record>
+        <value>25</value>
+        <name>host</name>
+        <description>Host Resources</description>
+        <xref type="rfc" data="rfc1514"/>
+      </record>
+      <record>
+        <value>26</value>
+        <name>snmpDot3MauMgt</name>
+        <description>802.3 Medium Attachment Units</description>
+        <xref type="rfc" data="rfc2668"/>
+      </record>
+      <record>
+        <value>27</value>
+        <name>application</name>
+        <description>Network Services Monitoring</description>
+        <xref type="rfc" data="rfc2248"/>
+      </record>
+      <record>
+        <value>28</value>
+        <name>mta</name>
+        <description>Mail Monitoring</description>
+        <xref type="rfc" data="rfc2789"/>
+      </record>
+      <record>
+        <value>29</value>
+        <name>dsa</name>
+        <description>X.500 Directory Monitoring</description>
+        <xref type="rfc" data="rfc1567"/>
+      </record>
+      <record>
+        <value>30</value>
+        <name>IANAifType</name>
+        <description>Interface Types</description>
+        <xref type="rfc" data="rfc2863"/>
+      </record>
+      <record>
+        <value>31</value>
+        <name>ifMIB</name>
+        <description>Interface Types</description>
+        <xref type="rfc" data="rfc2863"/>
+      </record>
+      <record>
+        <value>32</value>
+        <name>dns</name>
+        <description>Domain Name System</description>
+        <xref type="rfc" data="rfc1611"/>
+      </record>
+      <record>
+        <value>33</value>
+        <name>upsMIB</name>
+        <description>Uninterruptible Power Supplies</description>
+        <xref type="rfc" data="rfc1628"/>
+      </record>
+      <record>
+        <value>34</value>
+        <name>snanauMIB</name>
+        <description>SNA NAU MIB</description>
+        <xref type="rfc" data="rfc1666"/>
+      </record>
+      <record>
+        <value>35</value>
+        <name>etherMIB</name>
+        <description>Ethernet-like generic objects</description>
+        <xref type="rfc" data="rfc3635"/>
+      </record>
+      <record>
+        <value>36</value>
+        <name>sipMIB</name>
+        <description>SMDS inteface objects</description>
+        <xref type="rfc" data="rfc1694"/>
+      </record>
+      <record>
+        <value>37</value>
+        <name>atmMIB</name>
+        <description>ATM objects</description>
+        <xref type="rfc" data="rfc2515"/>
+      </record>
+      <record>
+        <value>38</value>
+        <name>mdmMIB</name>
+        <description>Dial-up modem objects</description>
+        <xref type="rfc" data="rfc1696"/>
+      </record>
+      <record>
+        <value>39</value>
+        <name>rdbmsMIB</name>
+        <description>relational database objects</description>
+        <xref type="rfc" data="rfc1697"/>
+      </record>
+      <record>
+        <value>40</value>
+        <name>flowMIB</name>
+        <description>traffic flow objects</description>
+        <xref type="rfc" data="rfc2720"/>
+      </record>
+      <record>
+        <value>41</value>
+        <name>snaDLC</name>
+        <description>SNA SDLC</description>
+        <xref type="rfc" data="rfc1747"/>
+      </record>
+      <record>
+        <value>42</value>
+        <name>dot5SrMIB</name>
+        <description>Token Ring Station Source Route</description>
+        <xref type="rfc" data="rfc1748"/>
+      </record>
+      <record>
+        <value>43</value>
+        <name>printMIB</name>
+        <description>Printer</description>
+        <xref type="rfc" data="rfc3805"/>
+      </record>
+      <record>
+        <value>44</value>
+        <name>mipMIB</name>
+        <description>Mobile IP</description>
+        <xref type="rfc" data="rfc2006"/>
+      </record>
+      <record>
+        <value>45</value>
+        <name>dot12MIB</name>
+        <description>IEEE 802.12</description>
+        <xref type="rfc" data="rfc2020"/>
+      </record>
+      <record>
+        <value>46</value>
+        <name>dlswMIB</name>
+        <description>Data Link Switch</description>
+        <xref type="rfc" data="rfc2024"/>
+      </record>
+      <record>
+        <value>47</value>
+        <name>entityMIB</name>
+        <description>Entity</description>
+        <xref type="rfc" data="rfc4133"/>
+      </record>
+      <record>
+        <value>48</value>
+        <name>ipMIB</name>
+        <description>Internet Protocol MIB Module</description>
+        <xref type="rfc" data="rfc4293"/>
+      </record>
+      <record>
+        <value>49</value>
+        <name>tcpMIB</name>
+        <description>TCP MIB Module</description>
+        <xref type="rfc" data="rfc4022"/>
+      </record>
+      <record>
+        <value>50</value>
+        <name>udpMIB</name>
+        <description>UDP MIB Module</description>
+        <xref type="rfc" data="rfc4113"/>
+      </record>
+      <record>
+        <value>51</value>
+        <name>rsvp</name>
+        <description>RSVP MIB</description>
+        <xref type="rfc" data="rfc2206"/>
+      </record>
+      <record>
+        <value>52</value>
+        <name>intSrv</name>
+        <description>Integrated Services MIB</description>
+        <xref type="rfc" data="rfc2213"/>
+      </record>
+      <record>
+        <value>53</value>
+        <name>vgRptrMIB</name>
+        <description>IEEE 802.12 Repeater MIB</description>
+        <xref type="rfc" data="rfc2266"/>
+      </record>
+      <record>
+        <value>54</value>
+        <name>sysApplMIB</name>
+        <description>System Application MIB</description>
+        <xref type="rfc" data="rfc2287"/>
+      </record>
+      <record>
+        <value>55</value>
+        <name>ipv6MIB</name>
+        <description>IP Version 6 MIB (Historic)</description>
+        <xref type="rfc" data="rfc8096"/>
+      </record>
+      <record>
+        <value>56</value>
+        <name>ipv6IcmpMIB</name>
+        <description>ICMPv6 Group MIB (Historic)</description>
+        <xref type="rfc" data="rfc8096"/>
+      </record>
+      <record>
+        <value>57</value>
+        <name>marsMIB</name>
+        <description>Multicast Address Resolution</description>
+        <xref type="rfc" data="rfc2417"/>
+      </record>
+      <record>
+        <value>58</value>
+        <name>perfHistTCMIB</name>
+        <description>PerfHist-TC-MIB</description>
+        <xref type="rfc" data="rfc3593"/>
+      </record>
+      <record>
+        <value>59</value>
+        <name>atmAccountingInformationMIB</name>
+        <xref type="rfc" data="rfc2512"/>
+      </record>
+      <record>
+        <value>60</value>
+        <name>accountingControlMIB</name>
+        <xref type="rfc" data="rfc2513"/>
+      </record>
+      <record>
+        <value>61</value>
+        <name>IANATn3270eTCMIB</name>
+        <description>IANATn3270eTC-MIB</description>
+        <xref type="rfc" data="rfc2561"/>
+      </record>
+      <record>
+        <value>62</value>
+        <name>applicationMib</name>
+        <description>Application Management MIB</description>
+        <xref type="rfc" data="rfc2564"/>
+      </record>
+      <record>
+        <value>63</value>
+        <name>schedMIB</name>
+        <description>Disman Schedule MIB</description>
+        <xref type="rfc" data="rfc3231"/>
+      </record>
+      <record>
+        <value>64</value>
+        <name>scriptMIB</name>
+        <description>Disman Script MIB</description>
+        <xref type="rfc" data="rfc3165"/>
+      </record>
+      <record>
+        <value>65</value>
+        <name>wwwMIB</name>
+        <description>WWW Service MIB</description>
+        <xref type="rfc" data="rfc2594"/>
+      </record>
+      <record>
+        <value>66</value>
+        <name>dsMIB</name>
+        <description>Directory Server Monitoring</description>
+        <xref type="rfc" data="rfc2605"/>
+      </record>
+      <record>
+        <value>67</value>
+        <name>radiusMIB</name>
+        <description>RADIUS MIB</description>
+        <xref type="rfc" data="rfc2618"/>
+      </record>
+      <record date="1999-06">
+        <value>68</value>
+        <name>vrrpMIB</name>
+        <description>VRRP MIB (DEPRECATED)</description>
+        <xref type="person" data="Bob_Hinden"/>
+        <xref type="rfc" data="rfc6527"/>
+      </record>
+      <record>
+        <value>69</value>
+        <name>docsDev</name>
+        <description>DOCS-CABLE-DEVICE-MIB</description>
+        <xref type="rfc" data="rfc2669"/>
+      </record>
+      <record>
+        <value>70</value>
+        <name>etherChipsetMIB</name>
+        <description>ETHER-CHIPSET-MIB</description>
+        <xref type="rfc" data="rfc2666"/>
+      </record>
+      <record>
+        <value>71</value>
+        <name>nhrpMIB</name>
+        <description>NBMA NHRP MIB</description>
+        <xref type="rfc" data="rfc2677"/>
+      </record>
+      <record>
+        <value>72</value>
+        <name>ianaAddressFamily</name>
+        <description>ianaAddressFamilyNumbers</description>
+        <xref type="rfc" data="rfc2677"/>
+      </record>
+      <record>
+        <value>73</value>
+        <name>ianalanguagemib</name>
+        <description>IANA Language MIB</description>
+        <xref type="rfc" data="rfc3165"/>
+      </record>
+      <record>
+        <value>74</value>
+        <name>agentxMIB</name>
+        <description>AGENTX-MIB</description>
+        <xref type="rfc" data="rfc2742"/>
+      </record>
+      <record>
+        <value>75</value>
+        <name>fcFeMIB</name>
+        <description>FIBRE-CHANNEL-FE-MIB</description>
+        <xref type="rfc" data="rfc2837"/>
+      </record>
+      <record>
+        <value>76</value>
+        <name>inetAddressMIB</name>
+        <description>INET Address MIB</description>
+        <xref type="rfc" data="rfc2851"/>
+      </record>
+      <record>
+        <value>77</value>
+        <name>ifInvertedStackMIB</name>
+        <description>IF Inverted Stack MIB</description>
+        <xref type="rfc" data="rfc2864"/>
+      </record>
+      <record>
+        <value>78</value>
+        <name>hcnumTC</name>
+        <description>HCNUM Textual Conventions</description>
+        <xref type="rfc" data="rfc2856"/>
+      </record>
+      <record>
+        <value>79</value>
+        <name>ptopoMIB</name>
+        <description>PTOPO-MIB</description>
+        <xref type="rfc" data="rfc2922"/>
+      </record>
+      <record>
+        <value>80</value>
+        <name>pingMIB</name>
+        <description>DISMAN-PING-MIB</description>
+        <xref type="rfc" data="rfc2925"/>
+      </record>
+      <record>
+        <value>81</value>
+        <name>traceRouteMIB</name>
+        <description>DISMAN-TRACEROUTE-MIB</description>
+        <xref type="rfc" data="rfc2925"/>
+      </record>
+      <record>
+        <value>82</value>
+        <name>lookupMIB</name>
+        <description>DISMAN-NSLOOKUP-MIB</description>
+        <xref type="rfc" data="rfc2925"/>
+      </record>
+      <record>
+        <value>83</value>
+        <name>ipMRouteStdMIB</name>
+        <description>IPMROUTE-STD-MIB</description>
+        <xref type="rfc" data="rfc2932"/>
+      </record>
+      <record>
+        <value>84</value>
+        <name>ianaipRouteProtocolMIB</name>
+        <description>IANA-RTPROTO-MIB</description>
+        <xref type="rfc" data="rfc2932"/>
+      </record>
+      <record>
+        <value>85</value>
+        <name>igmpStdMIB</name>
+        <description>IGMP-STD-MIB</description>
+        <xref type="rfc" data="rfc2933"/>
+      </record>
+      <record>
+        <value>86</value>
+        <name>frAtmIwfMIB</name>
+        <description>FR-ATM-PVC-SERVICE-IWF-MIB</description>
+        <xref type="rfc" data="rfc2955"/>
+      </record>
+      <record>
+        <value>87</value>
+        <name>rtpMIB</name>
+        <description>RTP-MIB</description>
+        <xref type="rfc" data="rfc2959"/>
+      </record>
+      <record>
+        <value>88</value>
+        <name>dismanEventMIB</name>
+        <description>DISMAN-EVENT-MIB</description>
+        <xref type="rfc" data="rfc2981"/>
+      </record>
+      <record>
+        <value>89</value>
+        <name>copsClientMIB</name>
+        <description>COPS-CLIENT-MIB</description>
+        <xref type="rfc" data="rfc2940"/>
+      </record>
+      <record>
+        <value>90</value>
+        <name>dismanExpressionMIB</name>
+        <description>DISMAN-EXPRESSION-MIB</description>
+        <xref type="rfc" data="rfc2982"/>
+      </record>
+      <record>
+        <value>91</value>
+        <name>mldMIB</name>
+        <description>IPV6-MLD-MIB</description>
+        <xref type="rfc" data="rfc3019"/>
+      </record>
+      <record>
+        <value>92</value>
+        <name>notificationLogMIB</name>
+        <description>NOTIFICATION-LOG-MIB</description>
+        <xref type="rfc" data="rfc3014"/>
+      </record>
+      <record>
+        <value>93</value>
+        <name>pintMIB</name>
+        <description>PINT-MIB</description>
+        <xref type="rfc" data="rfc3055"/>
+      </record>
+      <record>
+        <value>94</value>
+        <name>circuitIfMIB</name>
+        <description>CIRCUIT-IF-MIB</description>
+        <xref type="rfc" data="rfc3201"/>
+      </record>
+      <record>
+        <value>95</value>
+        <name>frsldMIB</name>
+        <description>FRSLD-MIB</description>
+        <xref type="rfc" data="rfc3202"/>
+      </record>
+      <record>
+        <value>96</value>
+        <name>diffServDSCPTC</name>
+        <description>DIFFSERV-DSCP-TC</description>
+        <xref type="rfc" data="rfc3289"/>
+      </record>
+      <record>
+        <value>97</value>
+        <name>diffServMib</name>
+        <description>DIFFSERV-MIB</description>
+        <xref type="rfc" data="rfc3289"/>
+      </record>
+      <record>
+        <value>98</value>
+        <name>gsmpMIB</name>
+        <description>GSMP-MIB</description>
+        <xref type="rfc" data="rfc3295"/>
+      </record>
+      <record>
+        <value>99</value>
+        <name>entitySensorMIB</name>
+        <description>ENTITY-SENSOR-MIB</description>
+        <xref type="rfc" data="rfc3433"/>
+      </record>
+      <record>
+        <value>100</value>
+        <name>transportAddressMIB</name>
+        <description>TRANSPORT-ADDRESS-MIB</description>
+        <xref type="rfc" data="rfc3419"/>
+      </record>
+      <record>
+        <value>101</value>
+        <name>mallocMIB</name>
+        <description>MALLOC-MIB</description>
+        <xref type="rfc" data="rfc3559"/>
+      </record>
+      <record>
+        <value>102</value>
+        <name>ianamallocMIB</name>
+        <description>IANA-MALLOC-MIB</description>
+        <xref type="rfc" data="rfc3559"/>
+      </record>
+      <record>
+        <value>103</value>
+        <name>ipv6FlowLabelMIB</name>
+        <description>IPV6-FLOW-LABEL-MIB</description>
+        <xref type="rfc" data="rfc3595"/>
+      </record>
+      <record>
+        <value>104</value>
+        <name>sctpMIB</name>
+        <description>SCTP-MIB</description>
+        <xref type="rfc" data="rfc3873"/>
+      </record>
+      <record>
+        <value>105</value>
+        <name>powerEthernetMIB</name>
+        <description>POWER-ETHERNET-MIB</description>
+        <xref type="rfc" data="rfc3621"/>
+      </record>
+      <record>
+        <value>106</value>
+        <name>ianaCharsetMIB</name>
+        <description>IANA-CHARSET-MIB</description>
+        <xref type="rfc" data="rfc3808"/>
+      </record>
+      <record>
+        <value>107</value>
+        <name>hcPerfHistTCMIB</name>
+        <description>HC-PerfHist-TC-MIB</description>
+        <xref type="rfc" data="rfc3705"/>
+      </record>
+      <record>
+        <value>108</value>
+        <name>diffServConfigMib</name>
+        <description>DIFFSERV-CONFIG-MIB</description>
+        <xref type="rfc" data="rfc3747"/>
+      </record>
+      <record>
+        <value>109</value>
+        <name>ianaPrinterMIB</name>
+        <description>IANA-PRINTER-MIB</description>
+        <xref type="rfc" data="rfc3805"/>
+      </record>
+      <record>
+        <value>110</value>
+        <name>ianafinisherMIB</name>
+        <description>IANA-FINISHER-MIB</description>
+        <xref type="rfc" data="rfc3806"/>
+      </record>
+      <record>
+        <value>111</value>
+        <name>finisherMIB</name>
+        <description>Finisher-MIB</description>
+        <xref type="rfc" data="rfc3806"/>
+      </record>
+      <record>
+        <value>112</value>
+        <name>rohcMIB</name>
+        <description>ROHC-MIB</description>
+        <xref type="rfc" data="rfc3816"/>
+      </record>
+      <record>
+        <value>113</value>
+        <name>rohcUncmprMIB</name>
+        <description>ROHC-UNCOMPRESSED-MIB</description>
+        <xref type="rfc" data="rfc3816"/>
+      </record>
+      <record>
+        <value>114</value>
+        <name>rohcRtpMIB</name>
+        <description>ROHC-RTP-MIB</description>
+        <xref type="rfc" data="rfc3816"/>
+      </record>
+      <record>
+        <value>115</value>
+        <name>tripTC</name>
+        <description>TRIP-TC</description>
+        <xref type="rfc" data="rfc3872"/>
+      </record>
+      <record>
+        <value>116</value>
+        <name>tripMIB</name>
+        <description>TRIP-MIB</description>
+        <xref type="rfc" data="rfc3872"/>
+      </record>
+      <record>
+        <value>117</value>
+        <name>arcMib</name>
+        <description>ARC-MIB</description>
+        <xref type="rfc" data="rfc3878"/>
+      </record>
+      <record>
+        <value>118</value>
+        <name>alarmMIB</name>
+        <description>ALARM-MIB</description>
+        <xref type="rfc" data="rfc3877"/>
+      </record>
+      <record>
+        <value>119</value>
+        <name>ianaItuAlarmNumbers</name>
+        <description>IANA-ITU-ALARM-TC</description>
+        <xref type="rfc" data="rfc3877"/>
+      </record>
+      <record>
+        <value>120</value>
+        <name>ituAlarmTc</name>
+        <description>ITU-ALARM-TC</description>
+        <xref type="rfc" data="rfc3877"/>
+      </record>
+      <record>
+        <value>121</value>
+        <name>ituAlarmMIB</name>
+        <description>ITU-ALARM-MIB</description>
+        <xref type="rfc" data="rfc3877"/>
+      </record>
+      <record>
+        <value>122</value>
+        <name>teMIB</name>
+        <description>TE-MIB</description>
+        <xref type="rfc" data="rfc3970"/>
+      </record>
+      <record updated="2015-07-07">
+        <value>123</value>
+        <name>natMIB</name>
+        <description>NAT-MIB (DEPRECATED)</description>
+        <xref type="rfc" data="rfc7658"/>
+      </record>
+      <record>
+        <value>124</value>
+        <name>pmMib</name>
+        <description>POLICY-BASED-MANAGEMENT-MIB</description>
+        <xref type="rfc" data="rfc4011"/>
+      </record>
+      <record>
+        <value>125</value>
+        <name>docsSubMgt</name>
+        <description>docsSubMgt</description>
+        <xref type="rfc" data="rfc4036"/>
+      </record>
+      <record>
+        <value>126</value>
+        <name>docsBpi2MIB</name>
+        <description>DOCS-IETF-BPI2-MIB</description>
+        <xref type="rfc" data="rfc4131"/>
+      </record>
+      <record>
+        <value>127</value>
+        <name>docsIetfQosMIB</name>
+        <description>DOCS-IETF-QOS-MIB</description>
+        <xref type="rfc" data="rfc4323"/>
+      </record>
+      <record>
+        <value>128</value>
+        <name>ianaIppmMetricsRegistry</name>
+        <description>IANA-IPPM-METRICS-REGISTRY</description>
+        <xref type="rfc" data="rfc4148"/>
+      </record>
+      <record>
+        <value>129</value>
+        <name>vpnTcMIB</name>
+        <description>VPN-TC-STD-MIB</description>
+        <xref type="rfc" data="rfc4265"/>
+      </record>
+      <record>
+        <value>130</value>
+        <name>entityStateTc</name>
+        <description>ENTITY-STATE-TC-MIB</description>
+        <xref type="rfc" data="rfc4268"/>
+      </record>
+      <record>
+        <value>131</value>
+        <name>entityStateMIB</name>
+        <description>ENTITY-STATE-MIB</description>
+        <xref type="rfc" data="rfc4268"/>
+      </record>
+      <record>
+        <value>132</value>
+        <name>docsDevNotifMIB</name>
+        <description>DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB</description>
+        <xref type="rfc" data="rfc4547"/>
+      </record>
+      <record>
+        <value>133</value>
+        <name>mip6MIB</name>
+        <description>MOBILEIPV6-MIB</description>
+        <xref type="rfc" data="rfc4295"/>
+      </record>
+      <record>
+        <value>134</value>
+        <name>rstpMIB</name>
+        <description>RSTP-MIB</description>
+        <xref type="rfc" data="rfc4318"/>
+      </record>
+      <record>
+        <value>135</value>
+        <name>t11FcNameServerMIB</name>
+        <description>T11-FC-NAME-SERVER-MIB</description>
+        <xref type="rfc" data="rfc4438"/>
+      </record>
+      <record>
+        <value>136</value>
+        <name>t11TcMIB</name>
+        <description>T11-TC-MIB</description>
+        <xref type="rfc" data="rfc4439"/>
+      </record>
+      <record>
+        <value>137</value>
+        <name>t11FcFabricAddrMgrMIB</name>
+        <description>T11-FC-FABRIC-ADDR-MGR-MIB</description>
+        <xref type="rfc" data="rfc4439"/>
+      </record>
+      <record>
+        <value>138</value>
+        <name>isisMIB</name>
+        <description>ISIS-MIB</description>
+        <xref type="rfc" data="rfc4444"/>
+      </record>
+      <record>
+        <value>139</value>
+        <name>scsiMIB</name>
+        <description>SCSI-MIB</description>
+        <xref type="rfc" data="rfc4455"/>
+      </record>
+      <record>
+        <value>140</value>
+        <name>pktcIetfMtaMib</name>
+        <description>PKTC-IETF-MTA-MIB</description>
+        <xref type="rfc" data="rfc4682"/>
+      </record>
+      <record>
+        <value>141</value>
+        <name>ipsAuthMibModule</name>
+        <description>IPS-AUTH-MIB</description>
+        <xref type="rfc" data="rfc4545"/>
+      </record>
+      <record>
+        <value>142</value>
+        <name>iscsiMibModule</name>
+        <description>ISCSI-MIB</description>
+        <xref type="rfc" data="rfc7147"/>
+      </record>
+      <record>
+        <value>143</value>
+        <name>t11FcFspfMIB</name>
+        <description>T11-FC-FSPF-MIB</description>
+        <xref type="rfc" data="rfc4626"/>
+      </record>
+      <record>
+        <value>144</value>
+        <name>t11FcRouteMIB</name>
+        <description>T11-FC-ROUTE-MIB</description>
+        <xref type="rfc" data="rfc4625"/>
+      </record>
+      <record>
+        <value>145</value>
+        <name>radiusDynAuthClientMIB</name>
+        <description>RADIUS-DYNAUTH-CLIENT-MIB</description>
+        <xref type="rfc" data="rfc4672"/>
+      </record>
+      <record>
+        <value>146</value>
+        <name>radiusDynAuthServerMIB</name>
+        <description>RADIUS-DYNAUTH-SERVER-MIB</description>
+        <xref type="rfc" data="rfc4673"/>
+      </record>
+      <record>
+        <value>147</value>
+        <name>t11FcVirtualFabricMIB</name>
+        <description>T11-FC-VIRTUAL-FABRIC-MIB</description>
+        <xref type="rfc" data="rfc4747"/>
+      </record>
+      <record>
+        <value>148</value>
+        <name>sipTC</name>
+        <description>SIP-TC-MIB</description>
+        <xref type="rfc" data="rfc4780"/>
+      </record>
+      <record>
+        <value>149</value>
+        <name>sipCommonMIB</name>
+        <description>SIP-COMMON-MIB</description>
+        <xref type="rfc" data="rfc4780"/>
+      </record>
+      <record>
+        <value>150</value>
+        <name>sipUAMIB</name>
+        <description>SIP-UA-MIB</description>
+        <xref type="rfc" data="rfc4780"/>
+      </record>
+      <record>
+        <value>151</value>
+        <name>sipServerMIB</name>
+        <description>SIP-SERVER-MIB</description>
+        <xref type="rfc" data="rfc4780"/>
+      </record>
+      <record>
+        <value>152</value>
+        <name>ianagmplstcMIB</name>
+        <description>IANA-GMPLS-TC-MIB</description>
+        <xref type="rfc" data="rfc4802"/>
+      </record>
+      <record>
+        <value>153</value>
+        <name>spdmib</name>
+        <description>IPSEC-SPD-MIB</description>
+        <xref type="rfc" data="rfc4807"/>
+      </record>
+      <record>
+        <value>154</value>
+        <name>ianamauMIB</name>
+        <description>IANA-MAU-MIB</description>
+        <xref type="rfc" data="rfc4836"/>
+      </record>
+      <record>
+        <value>155</value>
+        <name>dot3EponMIB</name>
+        <description>DOT3-EPON-MIB</description>
+        <xref type="rfc" data="rfc4837"/>
+      </record>
+      <record>
+        <value>156</value>
+        <name>tcpEStatsMIB</name>
+        <description>TCP Extended Statistics MIB</description>
+        <xref type="rfc" data="rfc4898"/>
+      </record>
+      <record>
+        <value>157</value>
+        <name>pimStdMIB</name>
+        <description>PIM routers Management MIB</description>
+        <xref type="rfc" data="rfc5060"/>
+      </record>
+      <record>
+        <value>158</value>
+        <name>dot3OamMIB</name>
+        <description>DOT3-OAM-MIB</description>
+        <xref type="rfc" data="rfc4878"/>
+      </record>
+      <record>
+        <value>159</value>
+        <name>t11FabricLockMIB</name>
+        <description>T11-FC-FABRIC-LOCK-MIB</description>
+        <xref type="rfc" data="rfc4936"/>
+      </record>
+      <record>
+        <value>160</value>
+        <name>t11ZoneServerMIB</name>
+        <description>T11-FC-ZONE-SERVER-MIB</description>
+        <xref type="rfc" data="rfc4936"/>
+      </record>
+      <record>
+        <value>161</value>
+        <name>t11FcRscnMIB</name>
+        <description>T11-FC-RSCN-MIB</description>
+        <xref type="rfc" data="rfc4983"/>
+      </record>
+      <record>
+        <value>162</value>
+        <name>t11FcFabricConfigServerMIB</name>
+        <description>T11-FC-FABRIC-CONFIG-SERVER-MIB</description>
+        <xref type="rfc" data="rfc4935"/>
+      </record>
+      <record>
+        <value>163</value>
+        <name>isnsMIB</name>
+        <description>ISNS-MIB</description>
+        <xref type="rfc" data="rfc4939"/>
+      </record>
+      <record>
+        <value>164</value>
+        <name>uriTcMIB</name>
+        <description>URI-TC-MIB</description>
+        <xref type="rfc" data="rfc5017"/>
+      </record>
+      <record>
+        <value>165</value>
+        <name>langTagTcMIB</name>
+        <description>LANGTAG-TC-MIB</description>
+        <xref type="rfc" data="rfc5131"/>
+      </record>
+      <record>
+        <value>166</value>
+        <name>ifCapStackMIB</name>
+        <description>IF-CAP-STACK-MIB</description>
+        <xref type="rfc" data="rfc5066"/>
+      </record>
+      <record>
+        <value>167</value>
+        <name>efmCuMIB</name>
+        <description>EFM-CU-MIB</description>
+        <xref type="rfc" data="rfc5066"/>
+      </record>
+      <record>
+        <value>168</value>
+        <name>ipMcastMIB</name>
+        <description>IP-Multicast-MIB</description>
+        <xref type="rfc" data="rfc5132"/>
+      </record>
+      <record>
+        <value>169</value>
+        <name>pktcIetfSigMib</name>
+        <description>PKTC-IETF-SIG-MIB</description>
+        <xref type="rfc" data="rfc5098"/>
+      </record>
+      <record>
+        <value>170</value>
+        <name>udpliteMIB</name>
+        <description>UDP-Lite Management</description>
+        <xref type="rfc" data="rfc5097"/>
+      </record>
+      <record>
+        <value>171</value>
+        <name>midcomMIB</name>
+        <description>MIDCOM-MIB</description>
+        <xref type="rfc" data="rfc5190"/>
+      </record>
+      <record>
+        <value>172</value>
+        <name>pimBsrMIB</name>
+        <description>pimBsrMIB</description>
+        <xref type="rfc" data="rfc5240"/>
+      </record>
+      <record>
+        <value>173</value>
+        <name>syslogTCMIB</name>
+        <description>SYSLOG-TC-MIB</description>
+        <xref type="rfc" data="rfc5427"/>
+      </record>
+      <record>
+        <value>174</value>
+        <name>ianaPwe3MIB</name>
+        <description>IANA-PWE3-MIB</description>
+        <xref type="rfc" data="rfc5601"/>
+      </record>
+      <record>
+        <value>175</value>
+        <name>t11FcTcMIB</name>
+        <description>T11-FC-SP-TC-MIB</description>
+        <xref type="rfc" data="rfc5324"/>
+      </record>
+      <record>
+        <value>176</value>
+        <name>t11FcSpAuthenticationMIB</name>
+        <description>T11-FC-SP-AUTHENTICATION-MIB</description>
+        <xref type="rfc" data="rfc5324"/>
+      </record>
+      <record>
+        <value>177</value>
+        <name>t11FcSpZoningMIB</name>
+        <description>T11-FC-SP-ZONING-MIB</description>
+        <xref type="rfc" data="rfc5324"/>
+      </record>
+      <record>
+        <value>178</value>
+        <name>t11FcSpPolicyMIB</name>
+        <description>T11-FC-SP-POLICY-MIB</description>
+        <xref type="rfc" data="rfc5324"/>
+      </record>
+      <record>
+        <value>179</value>
+        <name>t11FcSpSaMIB</name>
+        <description>T11-FC-SP-SA-MIB</description>
+        <xref type="rfc" data="rfc5324"/>
+      </record>
+      <record>
+        <value>180</value>
+        <name>pwEnetStdMIB</name>
+        <description>PW-ENET-STD-MIB</description>
+        <xref type="rfc" data="rfc5603"/>
+      </record>
+      <record>
+        <value>181</value>
+        <name>pwMplsStdMIB</name>
+        <description>PW-MPLS-STD-MIB</description>
+        <xref type="rfc" data="rfc5602"/>
+      </record>
+      <record>
+        <value>182</value>
+        <name>pktcIetfEventMib</name>
+        <description>PKTC-IETF-EVENT-MIB</description>
+        <xref type="rfc" data="rfc5428"/>
+      </record>
+      <record>
+        <value>183</value>
+        <name>pwATMMIB</name>
+        <description>PW-ATM-MIB</description>
+        <xref type="rfc" data="rfc5605"/>
+      </record>
+      <record>
+        <value>184</value>
+        <name>nemoMIB</name>
+        <description>nemoMIB</description>
+        <xref type="rfc" data="rfc5488"/>
+      </record>
+      <record>
+        <value>185</value>
+        <name>mgmdStdMIB</name>
+        <description>MGMD-STD-MIB</description>
+        <xref type="rfc" data="rfc5519"/>
+      </record>
+      <record>
+        <value>186</value>
+        <name>pwTDMMIB</name>
+        <description>PW-TDM-MIB</description>
+        <xref type="rfc" data="rfc5604"/>
+      </record>
+      <record>
+        <value>187</value>
+        <name>forcesMIB</name>
+        <description>FORCES-MIB</description>
+        <xref type="rfc" data="rfc5813"/>
+      </record>
+      <record>
+        <value>188</value>
+        <name>pwTcStdMIB</name>
+        <description>PW-TC-STD-MIB</description>
+        <xref type="rfc" data="rfc5542"/>
+      </record>
+      <record>
+        <value>189</value>
+        <name>sshtmMIB</name>
+        <description>Secure Shell Transport Model
+     MIB</description>
+        <xref type="rfc" data="rfc5592"/>
+      </record>
+      <record>
+        <value>190</value>
+        <name>snmpTsmMIB</name>
+        <description>Transport Security Model MIB</description>
+        <xref type="rfc" data="rfc5591"/>
+      </record>
+      <record>
+        <value>191</value>
+        <name>ospfv3MIB</name>
+        <description>OSPFV3-MIB</description>
+        <xref type="rfc" data="rfc5643"/>
+      </record>
+      <record>
+        <value>192</value>
+        <name>syslogMsgMib</name>
+        <description>SYSLOG-MSG-MIB</description>
+        <xref type="rfc" data="rfc5676"/>
+      </record>
+      <record>
+        <value>193</value>
+        <name>ipfixMIB</name>
+        <description>IPFIX-MIB</description>
+        <xref type="rfc" data="rfc5815"/>
+        <xref type="rfc" data="rfc6615"/>
+      </record>
+      <record>
+        <value>194</value>
+        <name>ipfixSelectorMIB</name>
+        <description>IPFIX-SELECTOR-MIB</description>
+        <xref type="rfc" data="rfc5815"/>
+        <xref type="rfc" data="rfc6615"/>
+      </record>
+      <record>
+        <value>195</value>
+        <name>capwapDot11MIB</name>
+        <description>CAPWAP-DOT11-MIB</description>
+        <xref type="rfc" data="rfc5834"/>
+      </record>
+      <record>
+        <value>196</value>
+        <name>capwapBaseMIB</name>
+        <description>CAPWAP-BASE-MIB</description>
+        <xref type="rfc" data="rfc5833"/>
+      </record>
+      <record>
+        <value>197</value>
+        <name>ntpSnmp</name>
+        <description>NTP-SNMP-MIB</description>
+        <xref type="rfc" data="rfc5907"/>
+      </record>
+      <record>
+        <value>198</value>
+        <name>snmpTlstmMIB</name>
+        <description>SNMP-TLS-TM-MIB</description>
+        <xref type="rfc" data="rfc6353"/>
+      </record>
+      <record>
+        <value>199</value>
+        <name>vacmAaaMIB</name>
+        <description>VACM-AAA-MIB</description>
+        <xref type="rfc" data="rfc6065"/>
+      </record>
+      <record>
+        <value>200</value>
+        <name>pwCepStdMIB</name>
+        <description>PW-CEP-STD-MIB</description>
+        <xref type="rfc" data="rfc6240"/>
+      </record>
+      <record>
+        <value>201</value>
+        <name>floatTcMIB</name>
+        <description>FLOAT-TC-MIB</description>
+        <xref type="rfc" data="rfc6340"/>
+      </record>
+      <record>
+        <value>202</value>
+        <name>mplsFrrGeneralStdMIB</name>
+        <description>MPLS-FRR-GENERAL-STD-MIB</description>
+        <xref type="rfc" data="rfc6445"/>
+      </record>
+      <record>
+        <value>203</value>
+        <name>mplsFrrOne2oneStdMIB</name>
+        <description>MPLS-FRR-ONE2ONE-STD-MIB</description>
+        <xref type="rfc" data="rfc6445"/>
+      </record>
+      <record>
+        <value>204</value>
+        <name>mplsFrrFacilityStdMIB</name>
+        <description>MPLS-FRR-FACILITY-STD-MIB</description>
+        <xref type="rfc" data="rfc6445"/>
+      </record>
+      <record>
+        <value>205</value>
+        <name>pmip6TCMIB</name>
+        <description>PMIPV6-TC-MIB</description>
+        <xref type="rfc" data="rfc6475"/>
+      </record>
+      <record>
+        <value>206</value>
+        <name>pmip6MIB</name>
+        <description>PMIPV6-MIB</description>
+        <xref type="rfc" data="rfc6475"/>
+      </record>
+      <record>
+        <value>207</value>
+        <name>vrrpv3MIB</name>
+        <description>VRRPV3-MIB</description>
+        <xref type="rfc" data="rfc6527"/>
+      </record>
+      <record>
+        <value>208</value>
+        <name>g9981MIB</name>
+        <description>G9981-MIB</description>
+        <xref type="rfc" data="rfc6768"/>
+      </record>
+      <record>
+        <value>209</value>
+        <name>g9982MIB</name>
+        <description>G9982-MIB</description>
+        <xref type="rfc" data="rfc6767"/><xref type="rfc-errata" data="3589"/>
+      </record>
+      <record>
+        <value>210</value>
+        <name>g9983MIB</name>
+        <description>G9983-MIB</description>
+        <xref type="rfc" data="rfc6766"/>
+      </record>
+      <record>
+        <value>211</value>
+        <name>gBondMIB</name>
+        <description>GBOND-MIB</description>
+        <xref type="rfc" data="rfc6765"/>
+      </record>
+      <record>
+        <value>212</value>
+        <name>psampMIB</name>
+        <description>PSAMP-MIB</description>
+        <xref type="rfc" data="rfc6727"/>
+      </record>
+      <record updated="2016-06-06">
+        <value>213</value>
+        <name>nhdpMIB</name>
+        <description>NHDP-MIB</description>
+        <xref type="rfc" data="rfc7939"/>
+      </record>
+      <record>
+        <value>214</value>
+        <name>rbridgeMIB</name>
+        <description>RBRIDGE-MIB</description>
+        <xref type="rfc" data="rfc6850"/>
+      </record>
+      <record>
+        <value>215</value>
+        <name>ianaGBondTcMIB</name>
+        <description>IANA-GBOND-TC-MIB</description>
+        <xref type="rfc" data="rfc6765"/>
+      </record>
+      <record>
+        <value>216</value>
+        <name>ianaEntityMIB</name>
+        <description>IANA-ENTITY-MIB</description>
+        <xref type="rfc" data="rfc6933"/>
+      </record>      
+      <record>
+        <value>217</value>
+        <name>uuidTCMIB</name>
+        <description>UUID-TC-MIB</description>
+        <xref type="rfc" data="rfc6933"/>
+      </record>      
+      <record>
+        <value>218</value>
+        <name>rpkiRtrMIB</name>
+        <description>RPKI-ROUTER-MIB</description>
+        <xref type="rfc" data="rfc6945"/>
+      </record>
+      <record date="2013-07-02">
+        <value>219</value>
+        <name>olsrv2MIB</name>
+        <description>OLSRv2-MIB</description>
+        <xref type="rfc" data="rfc7184"/>
+      </record>      
+      <record date="2013-09-13">
+        <value>220</value>
+        <name>lispMIB</name>
+        <description>Locator/ID Separation Protocol (LISP)</description>
+        <xref type="rfc" data="rfc7052"/>
+      </record>
+      <record date="2014-03-31">
+        <value>221</value>
+        <name>ianaOlsrv2LinkMetricTypeMIB</name>
+        <description>IANA-OLSRv2-LINK-METRIC-TYPE-MIB</description>
+        <xref type="rfc" data="rfc7184"/>
+      </record>
+      <record date="2014-06-06">
+        <value>222</value>
+        <name>bfdMIB</name>
+        <description>BFD-STD-MIB</description>
+        <xref type="rfc" data="rfc7331"/>
+      </record>
+      <record date="2014-06-06">
+        <value>223</value>
+        <name>bfdTCStdMIB</name>
+        <description>BFD-TC-STD-MIB</description>
+        <xref type="rfc" data="rfc7330"/>
+      </record>
+      <record date="2014-06-06">
+        <value>224</value>
+        <name>ianaBfdTCStdMIB</name>
+        <description>IANA-BFD-TC-STD-MIB</description>
+        <xref type="rfc" data="rfc7330"/>
+      </record>
+      <record date="2014-08-14">
+        <value>225</value>
+        <name>ianaSmfMIB</name>
+        <description>IANA-SMF-MIB</description>
+        <xref type="rfc" data="rfc7367"/>
+      </record>
+      <record date="2014-09-08">
+        <value>226</value>
+        <name>lowpanMIB</name>
+        <description>LOWPAN-MIB</description>
+        <xref type="rfc" data="rfc7388"/>
+      </record>
+      <record date="2014-11-03">
+        <value>227</value>
+        <name>pcePcepMIB</name>
+        <description>PCE-PCEP-MIB</description>
+        <xref type="rfc" data="rfc7420"/>
+      </record>
+      <record date="2014-12-29">
+        <value>228</value>
+        <name>IANAPowerStateSet-MIB</name>
+        <description>IANA-POWER-STATE-SET-MIB</description>
+        <xref type="rfc" data="rfc7460"/>
+      </record>
+      <record date="2014-12-29">
+        <value>229</value>
+        <name>energyObjectMIB</name>
+        <description>ENERGY-OBJECT-MIB</description>
+        <xref type="rfc" data="rfc7460"/>
+      </record>
+      <record date="2014-12-29">
+        <value>230</value>
+        <name>powerAttributesMIB</name>
+        <description>POWER-ATTRIBUTES-MIB</description>
+        <xref type="rfc" data="rfc7460"/>
+      </record>
+      <record date="2014-12-29">
+        <value>231</value>
+        <name>energyObjectContextMIB</name>
+        <description>ENERGY-OBJECT-CONTEXT-MIB</description>
+        <xref type="rfc" data="rfc7461"/>
+      </record>
+      <record date="2014-12-29">
+        <value>232</value>
+        <name>ianaEnergyRelationMIB</name>
+        <description>IANA-ENERGY-RELATION-MIB</description>
+        <xref type="rfc" data="rfc7461"/>
+      </record>
+      <record date="2015-05-10">
+        <value>233</value>
+        <name>batteryMIB</name>
+        <description>BATTERY-MIB</description>
+        <xref type="rfc" data="rfc7577"/>
+      </record>
+      <record date="2015-06-23">
+        <value>234</value>
+        <name>natv2MIB</name>
+        <description>NATV2-MIB</description>
+        <xref type="rfc" data="rfc7659"/>
+      </record>
+      <record date="2015-06-26" updated="2016-03-30">
+        <value>235</value>
+        <name>snmpUsmHmacSha2MIB</name>
+        <description>SNMP-USM-HMAC-SHA2-MIB</description>
+        <xref type="rfc" data="rfc7860"/>
+      </record>
+      <record date="2015-08-13">
+        <value>236</value>
+        <name>vmMIB</name>
+        <description>VM-MIB</description>
+        <xref type="rfc" data="rfc7666"/>
+      </record>
+      <record date="2015-08-13">
+        <value>237</value>
+        <name>ianaStorageMediaTypeMIB</name>
+        <description>IANA-STORAGE-MEDIA-TYPE-MIB</description>
+        <xref type="rfc" data="rfc7666"/>
+      </record>
+      <record date="2015-10-20">
+        <value>238</value>
+        <name>trillOamMIB</name>
+        <description>TRILL-OAM-MIB</description>
+        <xref type="rfc" data="rfc7784"/>
+      </record>
+      <record date="2016-04-29">
+        <value>239</value>
+        <name>swmMIB</name>
+        <description>SOFTWIRE-MESH-MIB</description>
+        <xref type="rfc" data="rfc7856"/>
+      </record>
+      <record date="2016-04-29">
+        <value>240</value>
+        <name>dsliteMIB</name>
+        <description>DSLite-MIB</description>
+        <xref type="rfc" data="rfc7870"/>
+      </record>
+      <record date="2017-03-24">
+        <value>241</value>
+        <name>ptpbaseMIB</name>
+        <description>PTPBASE-MIB</description>
+        <xref type="rfc" data="rfc8173"/>
+      </record>
+      <record date="2018-09-11">
+        <value>242</value>
+        <name>mapMIB</name>
+        <description>MAP-E-MIB</description>
+        <xref type="rfc" data="rfc8389"/>
+      </record>
+      <record date="2018-09-17">
+        <value>243</value>
+        <name>mvpnMIB</name>
+        <description>BGP-MPLS-LAYER3-VPN-MULTICAST-MIB</description>
+        <xref type="rfc" data="rfc8503"/>
+      </record>
+      <record date="2018-09-17">
+        <value>244</value>
+        <name>l2L3VpnMcastTCMIB</name>
+        <description>L2L3-VPN-MULTICAST-TC-MIB</description>
+        <xref type="rfc" data="rfc8502"/>
+      </record>
+      <record date="2018-09-17">
+        <value>245</value>
+        <name>l2L3VpnMcastMIB</name>
+        <description>L2L3-VPN-MULTICAST-MIB</description>
+        <xref type="rfc" data="rfc8502"/>
+      </record>
+      <record date="2022-10-27">
+        <value>246</value>
+        <name>iptfsMIB</name>
+        <description>IP-TRAFFIC-FLOW-SECURITY-MIB</description>
+        <xref type="rfc" data="rfc9349"/>
+      </record>
+    </registry>
+  </registry>
+  
+  <registry id="smi-numbers-22">
+    <title>SMI Experimental Codes</title>
+    <xref type="rfc" data="rfc4181"/>
+    <xref type="rfc" data="rfc2578"/>
+    <xref type="rfc" data="rfc1155"/>
+    <registration_rule>Experimental RFC</registration_rule>
+    <description>iso.org.dod.internet.experimental (1.3.6.1.3)</description>
+    <record date="1995-06">
+      <value>0</value>
+      <name>Reserved</name>
+      <xref type="person" data="IANA"/>
+    </record>
+    <record>
+      <value>1</value>
+      <name>CLNS</name>
+      <description>ISO CLNS Objects</description>
+      <xref type="person" data="Greg_Satz"/>
+    </record>
+    <record>
+      <value>2</value>
+      <name>T1-Carrier</name>
+      <description>T1 Carrier Objects</description>
+      <xref type="person" data="Fred_Baker"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>3</value>
+      <name>IEEE802.3</name>
+      <description>Ethernet-like Objects</description>
+      <xref type="person" data="John_Cook"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>4</value>
+      <name>IEEE802.5</name>
+      <description>Token Ring-like Objects</description>
+      <xref type="person" data="Eric_Decker"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>5</value>
+      <name>DECNet-PHIV</name>
+      <description>DECNet Phase IV</description>
+      <xref type="person" data="Jon_Saperia"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record date="1998-04">
+      <value>6</value>
+      <name>Interface</name>
+      <description>Generic Interface Objects</description>
+      <xref type="person" data="Keith_McCloghrie"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record date="1998-04">
+      <value>7</value>
+      <name>IEEE802.4</name>
+      <description>Token Bus-like Objects</description>
+      <xref type="person" data="Keith_McCloghrie"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>8</value>
+      <name>FDDI</name>
+      <description>FDDI Objects</description>
+      <xref type="person" data="Jeffrey_Case"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>9</value>
+      <name>LANMGR-1</name>
+      <description>LAN Manager V1 Objects</description>
+      <xref type="person" data="Jim_Greuel"/>
+    </record>
+    <record>
+      <value>10</value>
+      <name>LANMGR-TRAPS</name>
+      <description>LAN Manager Trap Objects</description>
+      <xref type="person" data="Jim_Greuel"/>
+    </record>
+    <record>
+      <value>11</value>
+      <name>Views</name>
+      <description>SNMP View Objects</description>
+      <xref type="person" data="Chuck_Davin"/>
+    </record>
+    <record date="1998-04">
+      <value>12</value>
+      <name>SNMP-AUTH</name>
+      <description>SNMP Authentication Objects</description>
+      <xref type="person" data="Keith_McCloghrie"/>
+    </record>
+    <record>
+      <value>13</value>
+      <name>BGP</name>
+      <description>Border Gateway Protocol</description>
+      <xref type="person" data="Steven_Willis"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>14</value>
+      <name>Bridge</name>
+      <description>Bridge MIB</description>
+      <xref type="person" data="Fred_Baker"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>15</value>
+      <name>DS3</name>
+      <description>DS3 Interface Type</description>
+      <xref type="person" data="Tracy_Brown"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>16</value>
+      <name>SIP</name>
+      <description>SMDS Interface Protocol</description>
+      <xref type="person" data="Tracy_Brown"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>17</value>
+      <name>Appletalk</name>
+      <description>Appletalk Networking</description>
+      <xref type="person" data="Steve_Waldbusser"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>18</value>
+      <name>PPP</name>
+      <description>PPP Objects</description>
+      <xref type="text">FKJ2</xref>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>19</value>
+      <name>Character MIB</name>
+      <description>Character MIB</description>
+      <xref type="person" data="Bob_Stewart_2"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>20</value>
+      <name>RS-232 MIB</name>
+      <description>RS-232 MIB</description>
+      <xref type="person" data="Bob_Stewart_2"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>21</value>
+      <name>Parallel MIB</name>
+      <description>Parallel MIB</description>
+      <xref type="person" data="Bob_Stewart_2"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>22</value>
+      <name>atsign-proxy</name>
+      <description>Proxy via Community</description>
+      <xref type="person" data="Richard_Fox"/>
+    </record>
+    <record>
+      <value>23</value>
+      <name>OSPF</name>
+      <description>OSPF MIB</description>
+      <xref type="person" data="Fred_Baker"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>24</value>
+      <name>Alert-Man</name>
+      <description>Alert-Man</description>
+      <xref type="person" data="Louis_Steinberg"/>
+    </record>
+    <record>
+      <value>25</value>
+      <name>FDDI-Synoptics</name>
+      <description>FDDI-Synoptics</description>
+      <xref type="person" data="David_Perkins"/>
+    </record>
+    <record>
+      <value>26</value>
+      <name>Frame Relay</name>
+      <description>Frame Relay MIB</description>
+      <xref type="person" data="Caralyn_Brown"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>27</value>
+      <name>rmon</name>
+      <description>Remote Network Management MIB</description>
+      <xref type="person" data="Steve_Waldbusser"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>28</value>
+      <name>IDPR</name>
+      <description>IDPR MIB</description>
+      <xref type="person" data="Robert_A_Woodburn"/>
+    </record>
+    <record>
+      <value>29</value>
+      <name>HUBMIB</name>
+      <description>IEEE 802.3 Hub MIB</description>
+      <xref type="person" data="Donna_McMaster"/>
+    </record>
+    <record>
+      <value>30</value>
+      <name>IPFWDTBLMIB</name>
+      <description>IP Forwarding Table MIB</description>
+      <xref type="person" data="Fred_Baker"/>
+    </record>
+    <record>
+      <value>31</value>
+      <name>LATM MIB</name>
+      <xref type="person" data="Tracy_Brown"/>
+    </record>
+    <record>
+      <value>32</value>
+      <name>SONET MIB</name>
+      <xref type="person" data="Tracy_Brown"/>
+    </record>
+    <record>
+      <value>33</value>
+      <name>IDENT</name>
+      <xref type="person" data="Marshall_Rose"/>
+    </record>
+    <record>
+      <value>34</value>
+      <name>MIME-MHS</name>
+      <xref type="person" data="Marshall_Rose"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>35</value>
+      <name>MAUMIB</name>
+      <description>IEEE 802.3 Mau MIB</description>
+      <xref type="person" data="Donna_McMaster"/>
+    </record>
+    <record>
+      <value>36</value>
+      <name>Host Resources</name>
+      <description>Host Resources MIB</description>
+      <xref type="person" data="Steve_Waldbusser"/>
+    </record>
+    <record>
+      <value>37</value>
+      <name>ISIS-MIB</name>
+      <description>Integrated ISIS protocol MIB</description>
+      <xref type="person" data="Chris_Gunner"/>
+    </record>
+    <record>
+      <value>38</value>
+      <name>Chassis</name>
+      <description>Chassis MIB</description>
+      <xref type="person" data="Jeffrey_Case"/>
+    </record>
+    <record>
+      <value>39</value>
+      <name>ups</name>
+      <description>ups</description>
+      <xref type="person" data="Jeffrey_Case"/>
+    </record>
+    <record>
+      <value>40</value>
+      <name>App-Mon</name>
+      <description>Application Monitoring MIB</description>
+      <xref type="person" data="Teemu_Kurki"/>
+    </record>
+    <record>
+      <value>41</value>
+      <name>ATM UNI</name>
+      <description>ATM</description>
+      <xref type="person" data="Masuma_Ahmed"/>
+    </record>
+    <record>
+      <value>42</value>
+      <name>FC</name>
+      <description>Fibre Channel</description>
+      <xref type="person" data="John_Chu"/>
+    </record>
+    <record>
+      <value>43</value>
+      <name>DNS</name>
+      <description>Domain Name Service</description>
+      <xref type="person" data="Rob_Austein"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>44</value>
+      <name>X.25</name>
+      <description>X.25 MIB</description>
+      <xref type="person" data="Dean_Throop"/>
+    </record>
+    <record>
+      <value>45</value>
+      <name>Frame Relay Serv.</name>
+      <description>Frame Relay Service MIB</description>
+      <xref type="person" data="Tracy_Cox"/>
+    </record>
+    <record>
+      <value>46</value>
+      <name>Madman-Applications</name>
+      <xref type="person" data="Ned_Freed"/>
+    </record>
+    <record>
+      <value>47</value>
+      <name>Madman-MTA</name>
+      <xref type="person" data="Ned_Freed"/>
+    </record>
+    <record>
+      <value>48</value>
+      <name>Madman-DSA</name>
+      <xref type="person" data="Ned_Freed"/>
+    </record>
+    <record>
+      <value>49</value>
+      <name>Modem</name>
+      <xref type="person" data="Steve_Waldbusser"/>
+    </record>
+    <record>
+      <value>50</value>
+      <name>SNA NAU</name>
+      <xref type="person" data="Deirdre_Kostick"/>
+    </record>
+    <record>
+      <value>51</value>
+      <name>SDLC</name>
+      <description>SDLC</description>
+      <xref type="person" data="Jeff_Hilgeman"/>
+    </record>
+    <record>
+      <value>52</value>
+      <name>DNS</name>
+      <description>Domain Name Service</description>
+      <xref type="person" data="Jon_Saperia"/>
+    </record>
+    <record>
+      <value>53</value>
+      <name>network-objects</name>
+      <description>IP info ix X.500</description>
+      <xref type="person" data="Johannsen"/>
+    </record>
+    <record>
+      <value>54</value>
+      <name>printmib</name>
+      <xref type="person" data="Joel_Gyllenskog"/>
+    </record>
+    <record>
+      <value>55</value>
+      <name>rdbmsmib</name>
+      <xref type="person" data="Robert_Purvey"/>
+    </record>
+    <record>
+      <value>56</value>
+      <name>sipMIB</name>
+      <xref type="person" data="Tracy_Brown"/>
+    </record>
+    <record>
+      <value>57</value>
+      <name>stIImib</name>
+      <description>ST-II protocol MIB</description>
+      <xref type="person" data="Hartmut_Wittig"/>
+    </record>
+    <record date="1998-04">
+      <value>58</value>
+      <name>802.5 SSR MIB</name>
+      <description>802.5 Stn Source Routing MIB</description>
+      <xref type="person" data="Keith_McCloghrie"/>
+    </record>
+    <record date="1998-04">
+      <value>59</value>
+      <name>igmpMIB</name>
+      <xref type="person" data="Keith_McCloghrie"/>
+    </record>
+    <record date="1998-04">
+      <value>60</value>
+      <name>ipRouteMIB</name>
+      <xref type="person" data="Keith_McCloghrie"/>
+    </record>
+    <record>
+      <value>61</value>
+      <name>pimMIB</name>
+      <xref type="rfc" data="rfc2934"/>
+    </record>
+    <record date="1998-07">
+      <value>62</value>
+      <name>dvmrpMIB</name>
+      <xref type="person" data="Dave_Thaler"/>
+    </record>
+    <record date="1995-05">
+      <value>63</value>
+      <name>dot12MIB</name>
+      <description>IEEE 802.12 Interface MIB</description>
+      <xref type="person" data="Jeffery_T_Johnson"/>
+    </record>
+    <record date="1995-05">
+      <value>64</value>
+      <name>vgRptrMIB</name>
+      <description>IEEE 802.12 Repeater MIB</description>
+      <xref type="person" data="Jeffery_T_Johnson"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>65</value>
+      <name>schema</name>
+      <description>Schema Publishing</description>
+      <xref type="rfc" data="rfc1804"/>
+    </record>
+    <record date="1995-08">
+      <value>66</value>
+      <name>hippi-ep</name>
+      <description>HIPPI End Point</description>
+      <xref type="person" data="John_Renwick"/>
+    </record>
+    <record date="1995-08">
+      <value>67</value>
+      <name>hippi-sd</name>
+      <description>HIPPI Switch Device</description>
+      <xref type="person" data="John_Renwick"/>
+    </record>
+    <record date="1995-10">
+      <value>68</value>
+      <name>dlsw</name>
+      <description>Data Link SWitch</description>
+      <xref type="person" data="David_Chen"/>
+    </record>
+    <record date="1995-12">
+      <value>69</value>
+      <name>mip</name>
+      <description>Mobile IP</description>
+      <xref type="person" data="Janes_Solomon"/>
+    </record>
+    <record date="1995-12">
+      <value>70</value>
+      <name>secModelMIB</name>
+      <description>Security Model</description>
+      <xref type="person" data="Michael_Kornegay"/>
+    </record>
+    <record date="1996-02">
+      <value>71</value>
+      <name>rsvp</name>
+      <description>Resource Reservation Protocol</description>
+      <xref type="person" data="Fred_Baker_2"/>
+    </record>
+    <record date="1996-02">
+      <value>72</value>
+      <name>intSrv</name>
+      <description>Integrated Services Protocol</description>
+      <xref type="person" data="Fred_Baker_2"/>
+    </record>
+    <record>
+      <value>73</value>
+      <name>Madman-Alarm-Generation</name>
+      <xref type="person" data="Gordon_Jones"/>
+    </record>
+    <record>
+      <value>74</value>
+      <name>IPv6 MIB</name>
+      <description>MIB for IPv6 (Historic)</description>
+      <xref type="rfc" data="rfc8096"/>
+      <xref type="person" data="Dimitry_Haskin"/>
+    </record>
+    <record date="1975-01">
+      <value>75</value>
+      <name>rdrrn</name>
+      <description>Rapidly Deploy Radio Resh Net</description>
+      <xref type="person" data="Steve_Bush"/>
+    </record>
+    <record>
+      <value>76</value>
+      <name>aris</name>
+      <description>ARIS Protocol</description>
+      <xref type="person" data="Kamal_Dhaliwal"/>
+    </record>
+    <record>
+      <value>77</value>
+      <name>rtpmib</name>
+      <description>Real-Time Transport Protocol</description>
+      <xref type="rfc" data="rfc2959"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>78</value>
+      <name>ipOverAtm</name>
+      <description>IP over ATM</description>
+      <xref type="person" data="Ken_White"/>
+    </record>
+    <record date="1997-07">
+      <value>79</value>
+      <name>radius</name>
+      <description>RADIUS Working Group</description>
+      <xref type="person" data="Bernard_Aboba"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>80</value>
+      <name>TN3270E-MIB</name>
+      <xref type="person" data="Ken_White"/>
+    </record>
+    <record>
+      <value>81</value>
+      <name>TN3270E-RT-MIB</name>
+      <xref type="person" data="Ken_White"/>
+    </record>
+    <record date="1998-05">
+      <value>82</value>
+      <name>docsif</name>
+      <xref type="person" data="Mike_St_Johns"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record date="1998-05">
+      <value>83</value>
+      <name>docsDev</name>
+      <xref type="person" data="Mike_St_Johns"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>84</value>
+      <name>REMOPS-MIB</name>
+      <xref type="person" data="Ken_White"/>
+    </record>
+    <record date="2011-07-22">
+      <value>85</value>
+      <name>scriptMIB</name>
+      <xref type="person" data="Juergen_Schoenwaelde"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>86</value>
+      <name>ipv6TcpMIB</name>
+      <description>IP Version 6 MIB for TCP (Historic)</description>
+      <xref type="rfc" data="rfc8096"/>
+    </record>
+    <record>
+      <value>87</value>
+      <name>ipv6UdpMIB</name>
+      <description>IP Version 6 MIB for UDP (Historic)</description>
+      <xref type="rfc" data="rfc8096"/>
+    </record>
+    <record>
+      <value>88</value>
+      <name>SLAPM-MIB</name>
+      <xref type="person" data="Ken_White"/>
+    </record>
+    <record date="1998-10">
+      <value>89</value>
+      <name>ADSLLINE-MIB</name>
+      <xref type="person" data="Gregory_Bathrick"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record>
+      <value>90</value>
+      <name>XGCP-MIB</name>
+      <xref type="person" data="Dinh_Nguyen"/>
+    </record>
+    <record date="2011-07-22">
+      <value>91</value>
+      <name>nmrg-MIB</name>
+      <description>Network Management Res. Grp.</description>
+      <xref type="person" data="Juergen_Schoenwaelde"/>
+    </record>
+    <record>
+      <value>92</value>
+      <name>MSDP-MIB</name>
+      <description>Multicast Source Discovery MIB</description>
+      <xref type="rfc" data="rfc4624"/>
+    </record>
+    <record date="1999-04">
+      <value>93</value>
+      <name>MLD-MIB</name>
+      <description>Multicast Listener Discovery</description>
+      <xref type="person" data="MIB_Brian_Haberman"/>
+    </record>
+    <record date="1999-05">
+      <value>94</value>
+      <name>FCMGMT-MIB</name>
+      <description>Fibre Channel Mgmt Framework</description>
+      <xref type="person" data="MIB_Steven_Blumenau"/>
+    </record>
+    <record date="2001-03">
+      <value>95</value>
+      <name>MPLS-TE-MIB</name>
+      <description>MPLS Traffic Engineering</description>
+      <xref type="person" data="Cheenu_Srinivasan"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record date="2001-03">
+      <value>96</value>
+      <name>MPLS-LSR-MIB</name>
+      <description>MPLS Label Switch Router</description>
+      <xref type="person" data="Cheenu_Srinivasan"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record date="1999-06">
+      <value>97</value>
+      <name>FR/ATM-PVC-MIB</name>
+      <description>Frame Relay/ATM PVC Serv. MIB</description>
+      <xref type="person" data="Ken_Rehbehn"/>
+    </record>
+    <record date="2000-02">
+      <value>98</value>
+      <name>IPSEC-Monitor-MIB</name>
+      <description>IPSEC Monitoring MIB</description>
+      <xref type="person" data="Tim_Jenkins"/>
+    </record>
+    <record date="2000-02">
+      <value>99</value>
+      <name>ISAKMP-Monitor-MIB</name>
+      <description>ISAKMP Monitoring MIB</description>
+      <xref type="person" data="Tim_Jenkins"/>
+    </record>
+    <record date="1999-07">
+      <value>100</value>
+      <name>IPSEC-ISAKMP-IKE-DOI-TC-MIB</name>
+      <xref type="person" data="John_Shriver"/>
+    </record>
+    <record>
+      <value>101</value>
+      <name>DHKEY-CHANGE</name>
+      <xref type="rfc" data="rfc2786"/>
+    </record>
+    <record date="1999-08">
+      <value>102</value>
+      <name>OSPFv3</name>
+      <description>OSPF for IPv6</description>
+      <xref type="person" data="Dan_Joyal"/>
+    </record>
+    <record date="1999-12">
+      <value>103</value>
+      <name>usbMIB</name>
+      <xref type="person" data="Bejamin_Dolnik"/>
+    </record>
+    <record date="2000-12">
+      <value>104</value>
+      <name>frsldMIB</name>
+      <xref type="person" data="Robert_Steinberger"/>
+    </record>
+    <record date="2000-03">
+      <value>105</value>
+      <name>mfrMIB</name>
+      <xref type="person" data="Pate_Prayson"/>
+    </record>
+    <record date="2000-02">
+      <value>106</value>
+      <name>IKE-MON-MIB</name>
+      <description>ikeMonMIB</description>
+      <xref type="person" data="Tim_Jenkins"/>
+    </record>
+    <record date="2000-07">
+      <value>107</value>
+      <name>Snmpconf Policy MIB</name>
+      <xref type="person" data="David_Harrington"/>
+    </record>
+    <record date="2000-07">
+      <value>108</value>
+      <name>Snmpconf Diffserv Policy MIB</name>
+      <xref type="person" data="David_Harrington"/>
+    </record>
+    <record date="2001-01">
+      <value>109</value>
+      <name>HDSL2-SHDSL MIB</name>
+      <xref type="person" data="Mike_Sneed"/>
+    </record>
+    <record date="2001-01">
+      <value>110</value>
+      <name>Euromodem MIB</name>
+      <xref type="person" data="Andrew_Valentine"/>
+    </record>
+    <record date="2001-03">
+      <value>111</value>
+      <name>MPLS-FTN-MIB</name>
+      <description>mplsFTNMIB</description>
+      <xref type="person" data="Cheenu_Srinivasan"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record date="2001-03">
+      <value>112</value>
+      <name>PGM-MIB</name>
+      <xref type="person" data="Luna_Petrova"/>
+    </record>
+    <record date="2001-10">
+      <value>113</value>
+      <name>LMP-MIB</name>
+      <xref type="person" data="Martin_Dubuc"/>
+      <xref type="note" data="1"/>
+    </record>
+    <record date="2001-10">
+      <value>114</value>
+      <name>TE-LINK-MIB</name>
+      <description>teLinkMIB</description>
+      <xref type="person" data="Martin_Dubuc"/>
+    </record>
+    <record date="2001-06">
+      <value>115</value>
+      <name>finisherMIB</name>
+      <xref type="person" data="Ron_Bergman"/>
+    </record>
+    <record>
+      <value>116</value>
+      <name>experimental pib</name>
+      <xref type="rfc" data="rfc3159"/>
+    </record>
+    <record date="2001-10">
+      <value>117</value>
+      <name>infinibandMIB</name>
+      <xref type="person" data="Bill_Strahm"/>
+    </record>
+    <record date="2002-12">
+      <value>118</value>
+      <name>mplsVpnMIB</name>
+      <description>MPLS-VPN-MIB</description>
+      <xref type="person" data="Thomas_D_Nadeau"/>
+    </record>
+    <record date="2001-11">
+      <value>119</value>
+      <name>diameterMIB</name>
+      <description>DIAMETER-BASE-PROTOCOL-MIB</description>
+      <xref type="person" data="Jay_Koehler"/>
+    </record>
+    <record date="2002-12">
+      <value>120</value>
+      <name>mplsFrrMIB</name>
+      <description>MPLS-FRR MIB</description>
+      <xref type="person" data="Thomas_D_Nadeau"/>
+    </record>
+    <record date="2002-12">
+      <value>121</value>
+      <name>ppvpnTcMIB</name>
+      <description>PPVPN-TC MIB</description>
+      <xref type="person" data="Thomas_D_Nadeau"/>
+    </record>
+    <record>
+      <value>122</value>
+      <name>bldgHVACMIB</name>
+      <description>BLDG-HVAC-MIB</description>
+      <xref type="rfc" data="rfc3512"/>
+    </record>
+    <record>
+      <value>123</value>
+      <name>aggrMIB</name>
+      <xref type="rfc" data="rfc4498"/>
+    </record>
+    <record>
+      <value>124</value>
+      <name>tAggrMIB</name>
+      <xref type="rfc" data="rfc4498"/>
+    </record>
+    <record>
+      <value>125</value>
+      <name>rserpoolMIB</name>
+      <xref type="rfc" data="rfc5525"/>
+    </record>
+    <record date="2014-08-14">
+      <value>126</value>
+      <name>smfMib</name>
+      <description>SMF-MIB</description>
+      <xref type="rfc" data="rfc7367"/>
+    </record>
+    
+    
+    <registry id="smi-numbers-23">
+      <title>SMI experimental PIB codes</title>
+      <xref type="rfc" data="rfc3159"/>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.experimental.experimental-pib (1.3.6.1.3.116)</description>
+      <record date="1995-06">
+        <value>0</value>
+        <name>Reserved</name>
+        <xref type="person" data="IANA"/>
+      </record>
+    </registry>
+    <footnote anchor="1">obsoleted</footnote>
+  </registry>
+  <registry id="smi-numbers-24">
+    <title>SMI Private Codes</title>
+    <xref type="rfc" data="rfc2578"/>
+    <registration_rule>Not Defined</registration_rule>
+    <description>iso.org.dod.internet.private (1.3.6.1.4)</description>
+    <record date="1995-06">
+      <value>0</value>
+      <name>Reserved</name>
+      <xref type="person" data="IANA"/>
+    </record>
+    <record date="1995-06">
+      <value>1</value>
+      <name>enterprise</name>
+      <description>private enterprises</description>
+      <xref type="person" data="IANA"/>
+    </record>
+  </registry>
+  <registry id="smi-numbers-25">
+      <title>Private Enterprise Numbers (PENs)</title>
+      <xref type="rfc" data="rfc9371"/>
+      <registration_rule>First Come First Served</registration_rule>
+      <description>iso.org.dod.internet.private.enterprise (1.3.6.1.4.1)</description>
+      <note>See <xref type="registry" data="enterprise-numbers"/>.
+      </note>
+    </registry>
+  <registry id="smi-numbers-50">
+    <title>SMI Security for Name System Designators Codes (nametypes)</title>
+    <xref type="text">Not Defined ?</xref>
+    <registration_rule>Not Defined ?</registration_rule>
+    <description>iso.org.dod.internet.security.nametypes (1.3.6.1.5.6)</description>
+    <record date="1995-06">
+      <value>0</value>
+      <name>Reserved</name>
+      <xref type="person" data="IANA"/>
+    </record>
+    <record date="1995-06">
+      <value>1</value>
+      <name>Domain Name System names</name>
+      <xref type="person" data="IANA"/>
+    </record>
+    <record>
+      <value>2</value>
+      <name>gss-host-based-services</name>
+      <xref type="rfc" data="rfc2743"/>
+    </record>
+    <record>
+      <value>3</value>
+      <name>gss-anonymous-name</name>
+      <xref type="rfc" data="rfc2743"/>
+    </record>
+    <record>
+      <value>4</value>
+      <name>gss-api-exported-name</name>
+      <xref type="rfc" data="rfc2743"/>
+    </record>
+    <record>
+      <value>5</value>
+      <name>gss-domain-based-services</name>
+      <xref type="rfc" data="rfc5178"/>
+    </record>
+    <record>
+      <value>6</value>
+      <name>gss-composite-export</name>
+      <xref type="rfc" data="rfc6680"/>
+    </record>
+  </registry>
+  <registry id="smi-numbers-51">
+    <title>SMI Security Services Codes</title>
+    <xref type="text">Not Defined ?</xref>
+    <registration_rule>IETF Review</registration_rule>
+    <description>iso.org.dod.internet.security.services (1.3.6.1.5.7)</description>
+    <record date="1995-06">
+      <value>0</value>
+      <name>Reserved</name>
+      <xref type="person" data="IANA"/>
+    </record>
+    <record date="1997-10">
+      <value>1</value>
+      <name>conf</name>
+      <description>confidentiality services</description>
+      <xref type="person" data="Carlisle_Adams"/>
+    </record>
+    <record date="1997-10">
+      <value>2</value>
+      <name>integrity</name>
+      <description>data integrity services</description>
+      <xref type="person" data="Carlisle_Adams"/>
+    </record>
+    <record date="1997-10">
+      <value>3</value>
+      <name>doa</name>
+      <description>data origin authen. services</description>
+      <xref type="person" data="Carlisle_Adams"/>
+    </record>
+    <record date="1997-10">
+      <value>4</value>
+      <name>non-rep</name>
+      <description>non-repudiation services</description>
+      <xref type="person" data="Carlisle_Adams"/>
+    </record>
+    <record date="1997-10">
+      <value>5</value>
+      <name>acc</name>
+      <description>access control services</description>
+      <xref type="person" data="Carlisle_Adams"/>
+    </record>
+    <record date="1997-10">
+      <value>6</value>
+      <name>dflow</name>
+      <description>data flow services</description>
+      <xref type="person" data="Carlisle_Adams"/>
+    </record>
+    <record date="1997-10">
+      <value>7</value>
+      <name>time</name>
+      <description>time services</description>
+      <xref type="person" data="Carlisle_Adams"/>
+    </record>
+    <registry id="smi-numbers-52">
+      <title>SMI Security Services Codes (conf)</title>
+      <xref type="text">Not Defined ?</xref>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.security.services.conf (1.3.6.1.5.7.1)</description>
+      <record date="1995-06">
+        <value>0</value>
+        <name>Reserved</name>
+        <xref type="person" data="IANA"/>
+      </record>
+      <record date="1997-10">
+        <value>1</value>
+        <name>per-conf</name>
+        <description>perform conf. (encrypt)</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record date="1997-10">
+        <value>2</value>
+        <name>rec-conf</name>
+        <description>receive conf. (decrypt)</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record>
+        <value>3</value>
+        <name>per-conf-full</name>
+        <description>perform full confidentiality</description>
+        <xref type="rfc" data="rfc2479"/>
+      </record>
+      <record>
+        <value>4</value>
+        <name>rec-conf-full</name>
+        <description>receive full confidentiality</description>
+        <xref type="rfc" data="rfc2479"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-53">
+      <title>SMI Security Services Codes (integrity)</title>
+      <xref type="text">Not Defined ?</xref>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.security.services.integrity (1.3.6.1.5.7.2)</description>
+      <record date="1995-06">
+        <value>0</value>
+        <name>Reserved</name>
+        <xref type="person" data="IANA"/>
+      </record>
+      <record date="1997-10">
+        <value>1</value>
+        <name>per-int</name>
+        <description>perform integrity (e.g. MAC)</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record date="1997-10">
+        <value>2</value>
+        <name>rec-int</name>
+        <description>receive integrity (verify MAC)</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-54">
+      <title>SMI Security Services Codes (doa)</title>
+      <xref type="text">Not Defined ?</xref>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.security.services.doa (1.3.6.1.5.7.3)</description>
+      <record date="1995-06">
+        <value>0</value>
+        <name>Reserved</name>
+        <xref type="person" data="IANA"/>
+      </record>
+      <record date="1997-10">
+        <value>1</value>
+        <name>per-doa</name>
+        <description>perform DOA (e.g., sign)</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record date="1997-10">
+        <value>2</value>
+        <name>rec-doa</name>
+        <description>receive DOA (verify sig)</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record>
+        <value>3</value>
+        <name>per-doa-ciph</name>
+        <description>perform DOA with DI over ciphertext</description>
+        <xref type="rfc" data="rfc2479"/>
+      </record>
+      <record>
+        <value>4</value>
+        <name>rec-doa-ciph</name>
+        <description>verify DOA with DI over ciphertext</description>
+        <xref type="rfc" data="rfc2479"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-55">
+      <title>SMI Security Services Codes (non-rep)</title>
+      <xref type="text">Not Defined ?</xref>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.security.services.non-rep (1.3.6.1.5.7.4)</description>
+      <record date="1995-06">
+        <value>0</value>
+        <name>Reserved</name>
+        <xref type="person" data="IANA"/>
+      </record>
+      <record date="1997-10">
+        <value>1</value>
+        <name>per-poo</name>
+        <description>create proof-of-origin</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record date="1997-10">
+        <value>2</value>
+        <name>rec-poo</name>
+        <description>verify proof-of-origin</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record date="1997-10">
+        <value>3</value>
+        <name>per-pod</name>
+        <description>create proof-of-delivery</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record date="1997-10">
+        <value>4</value>
+        <name>rec-pod</name>
+        <description>verify proof-of-delivery</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-56">
+      <title>SMI Security Services Codes (acc)</title>
+      <xref type="text">Not Defined ?</xref>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.security.services.acc (1.3.6.1.5.7.5)</description>
+      <record date="1995-06">
+        <value>0</value>
+        <name>Reserved</name>
+        <xref type="person" data="IANA"/>
+      </record>
+      <record date="1997-10">
+        <value>1</value>
+        <name>per-acc</name>
+        <description>apply access control</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record date="1997-10">
+        <value>2</value>
+        <name>rec-acc</name>
+        <description>verify access control</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-57">
+      <title>SMI Security Services Codes (dflow)</title>
+      <xref type="text">Not Defined ?</xref>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.security.services.dflow (1.3.6.1.5.7.6)</description>
+      <record date="1995-06">
+        <value>0</value>
+        <name>Reserved</name>
+        <xref type="person" data="IANA"/>
+      </record>
+      <record date="1997-10">
+        <value>1</value>
+        <name>per-dflow</name>
+        <description>perform data flow</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record date="1997-10">
+        <value>2</value>
+        <name>rec-dflow</name>
+        <description>receive data flow</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-58">
+      <title>SMI Security Services Codes (time)</title>
+      <xref type="text">Not Defined ?</xref>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.security.services.time (1.3.6.1.5.7.7)</description>
+      <record date="1995-06">
+        <value>0</value>
+        <name>Reserved</name>
+        <xref type="person" data="IANA"/>
+      </record>
+      <record date="1997-10">
+        <value>1</value>
+        <name>ttime</name>
+        <description>use trusted time</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+      <record date="1997-10">
+        <value>2</value>
+        <name>utime</name>
+        <description>use untrusted time</description>
+        <xref type="person" data="Carlisle_Adams"/>
+      </record>
+    </registry>
+  </registry>
+  <registry id="smi-numbers-59">
+    <title>SMI SNMPv2 Codes</title>
+    <xref type="rfc" data="rfc2578"/>
+    <xref type="rfc" data="rfc1902"/>
+    <registration_rule>IETF Review</registration_rule>
+    <description>iso.org.dod.internet.snmpv2 (1.3.6.1.6)</description>
+    <record>
+      <value>1</value>
+      <name>smmpDomains</name>
+      <xref type="rfc" data="rfc1902"/>
+    </record>
+    <record>
+      <value>2</value>
+      <name>smnpProxys</name>
+      <xref type="rfc" data="rfc1902"/>
+    </record>
+    <record>
+      <value>3</value>
+      <name>smnpModules</name>
+      <xref type="rfc" data="rfc1902"/>
+    </record>
+    <registry id="smi-numbers-60">
+      <title>SNMPv2 snmpDomains Codes</title>
+      <xref type="rfc" data="rfc4789"/>
+      <registration_rule>Specification Required</registration_rule>
+      <expert>Unassigned</expert>
+      <description>iso.org.dod.internet.snmpv2.snmpDomains (1.3.6.1.6.1)</description>
+      <record>
+        <value>1</value>
+        <name>snmpUDPDomain</name>
+        <description>SNMP over UDP</description>
+        <xref type="rfc" data="rfc3417"/>
+      </record>
+      <record>
+        <value>2</value>
+        <name>snmpCLNSDomain</name>
+        <description>SNMP over CLNS</description>
+        <xref type="rfc" data="rfc3417"/>
+      </record>
+      <record>
+        <value>3</value>
+        <name>snmpCONSDomain</name>
+        <description>SNMP over CONS</description>
+        <xref type="rfc" data="rfc3417"/>
+      </record>
+      <record>
+        <value>4</value>
+        <name>snmpDDPDomain</name>
+        <description>SNMP over DDP</description>
+        <xref type="rfc" data="rfc3417"/>
+      </record>
+      <record>
+        <value>5</value>
+        <name>snmpIPXDomain</name>
+        <description>SNMP over IPX</description>
+        <xref type="rfc" data="rfc3417"/>
+      </record>
+      <record>
+        <value>6</value>
+        <name>snmpIeee802Domain</name>
+        <description>SNMP over IEEE 802</description>
+        <xref type="rfc" data="rfc4789"/>
+      </record>
+      <record>
+        <value>7</value>
+        <name>snmpSSHDomain</name>
+        <description>SNMP over SSH Transport Model</description>
+        <xref type="rfc" data="rfc5592"/>
+      </record>
+      <record>
+        <value>8</value>
+        <name>snmpTLSTCPDomain</name>
+        <description>SNMP over TLS via TCP</description>
+        <xref type="rfc" data="rfc6353"/>
+      </record>
+      <record>
+        <value>9</value>
+        <name>snmpDTLSUDPDomain</name>
+        <description>SNMP over DTLS via UDP</description>
+        <xref type="rfc" data="rfc6353"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-61">
+      <title>SMI SNMPv2 snmpModules Codes</title>
+      <xref type="text">No more registrations accepted </xref>
+      <registration_rule>IETF Review</registration_rule>
+      <description>iso.org.dod.internet.snmpv2.snmpModules (1.3.6.1.6.3) - No more registrations accepted</description>
+      <record>
+        <value>1</value>
+        <name>snmpMIB</name>
+        <description>MIB for SNMPv2</description>
+        <xref type="rfc" data="rfc3418"/>
+      </record>
+      <record>
+        <value>2</value>
+        <name>snmpM2M</name>
+        <description>SNMPv2 M2M MIB</description>
+        <xref type="rfc" data="rfc1451"/>
+      </record>
+      <record>
+        <value>2</value>
+        <name>snmpFrameworkMIB</name>
+        <description>SNMP Management Architecture</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>3</value>
+        <name>partyMIB</name>
+        <description>SNMPv2 Party MIB</description>
+        <xref type="rfc" data="rfc1447"/>
+      </record>
+      <record>
+        <value>3</value>
+        <name>snmpMPDMIB</name>
+        <description>SNMP Message Processing</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>4</value>
+        <name>bcmMIB</name>
+        <description>SNMPv2 Basic Configuration Model</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>4</value>
+        <name>snmpUsmMIB</name>
+        <description>User-based Security for SNMPv3</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>5</value>
+        <name>scmMIB</name>
+        <description>Simplified Configuration Model</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>5</value>
+        <name>snmpVacmMIB</name>
+        <description>View-Based Access Control</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>6</value>
+        <name>usecMIB</name>
+        <description>User-based Security for SNMPv2</description>
+        <xref type="rfc" data="rfc1910"/>
+      </record>
+      <record>
+        <value>7</value>
+        <name>snmpTargetMIB</name>
+        <description>SNMP Target</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>8</value>
+        <name>snmpNotificationMIB</name>
+        <description>SNMP Notification</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>9</value>
+        <name>snmpProxyMIB</name>
+        <description>SNMP Proxy</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>10</value>
+        <name>snmpFrameworkMIB</name>
+        <description>SNMP Management Architecture</description>
+        <xref type="rfc" data="rfc3411"/>
+      </record>
+      <record>
+        <value>11</value>
+        <name>snmpMPDMIB</name>
+        <description>SNMP Message Processing</description>
+        <xref type="rfc" data="rfc3412"/>
+      </record>
+      <record>
+        <value>12</value>
+        <name>snmpTargetMIB</name>
+        <description>SNMP Target</description>
+        <xref type="rfc" data="rfc3413"/>
+      </record>
+      <record>
+        <value>13</value>
+        <name>snmpNotificationMIB</name>
+        <description>SNMP Notification</description>
+        <xref type="rfc" data="rfc3413"/>
+      </record>
+      <record>
+        <value>14</value>
+        <name>snmpProxyMIB</name>
+        <description>SNMP Proxy</description>
+        <xref type="rfc" data="rfc3413"/>
+      </record>
+      <record>
+        <value>15</value>
+        <name>snmpUsmMIB</name>
+        <description>User-based Security for SNMPv3</description>
+        <xref type="rfc" data="rfc3414"/>
+      </record>
+      <record>
+        <value>16</value>
+        <name>snmpVacmMIB</name>
+        <description>View-Based Access Control</description>
+        <xref type="rfc" data="rfc3415"/>
+      </record>
+      <record>
+        <value>17</value>
+        <name>marsMIB</name>
+        <description>Multicast Address Resolution</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record date="1998-09">
+        <value>18</value>
+        <name>communityMIB</name>
+        <description>SNMP Community MIB</description>
+        <xref type="person" data="Rob_Frye"/>
+      </record>
+      <record>
+        <value>19</value>
+        <name>snmpv2tmMIB</name>
+        <description>SNMPv2-TM MIB</description>
+        <xref type="rfc" data="rfc3417"/>
+      </record>
+      <record>
+        <value>20</value>
+        <name>snmpUsmAesMIB</name>
+        <description>SNMP-USM-AES-MIB</description>
+        <xref type="rfc" data="rfc3826"/>
+      </record>
+      <record>
+        <value>21</value>
+        <name>snmpIEEE802TmMIB</name>
+        <description>IEEE 802 Transport Mapping</description>
+        <xref type="rfc" data="rfc4789"/>
+      </record>
+      <record>
+        <value>1133</value>
+        <name>communityMIB</name>
+        <description>SNMPv2 Community MIB</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>1134</value>
+        <name>v2AdminMIB</name>
+        <description>SNMPv2 Administrative MIB</description>
+        <xref type="text">obsolete</xref>
+      </record>
+      <record>
+        <value>1135</value>
+        <name>usecMIB</name>
+        <description>MIB for User-based Security</description>
+        <xref type="text">obsolete</xref>
+      </record>
+    </registry>
+  </registry>
+  <registry id="smi-numbers-62">
+    <title>SNMP Management Architecture - Security Subsystem (SnmpSecurityModel)</title>
+    <note>Please see: <xref type="registry" data="snmp-number-spaces"/></note>
+  </registry>
+  <registry id="smi-numbers-63">
+    <title>SNMP Management Architecture - Message Processing Subsystem (SnmpMessageProcessingModel)</title>
+    <note>Please see: <xref type="registry" data="snmp-number-spaces"/></note>
+  </registry>
+  <registry id="smi-numbers-64">
+    <title>SMI mail Codes</title>
+    <xref type="text">Not Defined ?</xref>
+    <registration_rule>Not Defined ?</registration_rule>
+    <description>iso.org.dod.internet.mail (1.3.6.1.7)</description>
+    <record>
+      <value>1</value>
+      <name>mime-mhs</name>
+      <description>MIME MHS Mappings</description>
+      <xref type="rfc" data="rfc1495"/>
+    </record>
+    <registry id="smi-numbers-65">
+      <title>SMI mail MIME MHS Codes</title>
+      <xref type="rfc" data="rfc1495"/>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.mail.mime-mhs (1.3.6.1.7.1)</description>
+      <record>
+        <value>1</value>
+        <name>mixer-headings</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+      <record>
+        <value>2</value>
+        <name>mixer-bodies</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+      <record>
+        <value>3</value>
+        <name>mixer-core</name>
+        <description>MIXER core</description>
+        <xref type="rfc" data="rfc2156"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-66">
+      <title>SMI mail MIME MHS headings Codes</title>
+      <xref type="rfc" data="rfc2157"/>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.mail.mime-mhs.mixer-headings (1.3.6.1.7.1.1)</description>
+      <record>
+        <value>1</value>
+        <name>id-hex-partial-message</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+      <record>
+        <value>2</value>
+        <name>id-hex-multipart-message (OBSOLETE)</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+      <record>
+        <value>3</value>
+        <name>id-hex-multipart-message-v2</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-67">
+      <title>SMI mail MIME MHS bodies Codes</title>
+      <xref type="rfc" data="rfc2157"/>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.mail.mime-mhs.mixer-bodies (1.3.6.1.7.1.2)</description>
+      <record>
+        <value>1</value>
+        <name>mixer-bp-data</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+      <record>
+        <value>2</value>
+        <name>mixer-bp-parameter</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-68">
+      <title>SMI mail MIME MHS bodies data Codes</title>
+      <xref type="rfc" data="rfc2157"/>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.mail.mime-mhs.mixer-bodies.mixer-bp-data (1.3.6.1.7.1.2.1)</description>
+      <record>
+        <value>1</value>
+        <name>id-mime-bp-data</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+      <record>
+        <value>2</value>
+        <name>id-mime-postscript-body</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+      <record>
+        <value>3</value>
+        <name>id-mime-jpeg-body</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+      <record>
+        <value>4</value>
+        <name>id-mime-gif-body</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+      <record>
+        <value>5</value>
+        <name>id-mime-ftbp-data FTAM application reference</name>
+        <xref type="rfc" data="rfc2157"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-69">
+      <title>SMI mail MIME MHS bodies parameter Codes</title>
+      <xref type="rfc" data="rfc2157"/>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.mail.mime-mhs.mixer-bodies.mixer-bp-parameter (1.3.6.1.7.1.2.2)</description>
+      <record>
+        <value>2</value>
+        <name>id-rfc-822-field-list</name>
+        <xref type="rfc" data="rfc2156"/>
+      </record>
+      <record>
+        <value>3</value>
+        <name>id-dsn-header-list</name>
+        <xref type="rfc" data="rfc2156"/>
+      </record>
+      <record>
+        <value>4</value>
+        <name>id-dsn-field-list</name>
+        <xref type="rfc" data="rfc2156"/>
+      </record>
+      <record>
+        <value>5</value>
+        <name>eit-mixer The MIXER pseudo-EIT</name>
+        <xref type="rfc" data="rfc2156"/>
+      </record>
+    </registry>
+    <registry id="smi-numbers-70">
+      <title>SMI mail MIME-MHS core Codes</title>
+      <xref type="rfc" data="rfc2156"/>
+      <registration_rule>Not Defined ?</registration_rule>
+      <description>iso.org.dod.internet.mail.mixer.mixer-core (1.3.6.1.7.1.3)</description>
+      <record>
+        <value>2</value>
+        <name>id-rfc-822-field-list</name>
+        <xref type="rfc" data="rfc2156"/>
+      </record>
+      <record>
+        <value>3</value>
+        <name>id-dsn-header-list</name>
+        <xref type="rfc" data="rfc2156"/>
+      </record>
+      <record>
+        <value>4</value>
+        <name>id-dsn-field-list</name>
+        <xref type="rfc" data="rfc2156"/>
+      </record>
+      <record>
+        <value>5</value>
+        <name>eit-mixer The MIXER pseudo-EIT</name>
+        <xref type="rfc" data="rfc2156"/>
+      </record>
+    </registry>
+  </registry>
+  
+  <people>
+    <person id="Andrew_Lunn">
+      <name>Andrew Lunn</name>
+      <uri>mailto:Andrew.Lunn&amp;ascom.ch</uri>
+      <updated>2000-08</updated>
+    </person>
+    <person id="Andrew_Valentine">
+      <name>Andrew Valentine</name>
+      <uri>mailto:A.Valentine&amp;eu.hns.com</uri>
+      <updated>2001-01</updated>
+    </person>
+    <person id="Angelos_Keromytis">
+      <name>Angelos Keromytis</name>
+      <uri>mailto:angelos&amp;dsl.cis.upenn.edu</uri>
+      <updated>1999-04</updated>
+    </person>
+  </people>
+</registry>

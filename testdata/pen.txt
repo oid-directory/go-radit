@@ -1,0 +1,421 @@
+PRIVATE ENTERPRISE NUMBERS
+
+(last updated 2026-06-23)
+
+SMI Network Management Private Enterprise Codes:
+
+Prefix: iso.org.dod.internet.private.enterprise (1.3.6.1.4.1)
+
+This file is https://www.iana.org/assignments/enterprise-numbers.txt
+
+Decimal
+| Organization
+| | Contact
+| | | Email
+| | | | 
+0
+  Reserved
+    Internet Assigned Numbers Authority
+      iana&iana.org
+1
+  NxNetworks
+    Michael Kellen
+      OID.Admin&NxNetworks.com
+2
+  IBM (https://w3.ibm.com/standards )
+    Glenn Daly
+      gdaly&us.ibm.com
+3
+  Carnegie Mellon
+    Mark Poepping
+      host-master&andrew.cmu.edu
+4
+  Unix
+    Keith Sklower
+      sklower&okeeffe.berkeley.edu
+5
+  ACC
+    Art Berggreen
+      art&SALT.ACC.COM
+6
+  TWG
+    John Lunny
+      jlunny&eco.twg.com
+7
+  CAYMAN
+    Beth Miaoulis
+      beth&cayman.com
+8
+  PSI
+    Marty Schoffstahl
+      schoff&NISC.NYSER.NET
+9
+  ciscoSystems
+    Dave Jones
+      davej&cisco.com
+10
+  NSC
+    John Lyman
+      lyman&network.com
+11
+  Hewlett-Packard
+    Harry Lynch
+      harry.lynch&hp.com
+12
+  Epilogue
+    Karl Auerbach
+      karl&cavebear.com
+13
+  U of Tennessee
+    Jeffrey Case
+      case&CS.UTK.EDU
+14
+  BBN Technologies
+    Matthew Gillen
+      matthew.gillen&raytheon.com
+15
+  Xylogics, Inc.
+    Jim Barnes
+      barnes&xylogics.com
+16
+  Timeplex
+    Laura Bridge
+      laura&uunet.UU.NET
+17
+  Canstar
+    Sanand Patel
+      sanand&HUB.TORONTO.EDU
+18
+  Wellfleet
+    Sharon Chisholm
+      schishol&nortelnetworks.com
+19
+  TRW
+    Eric Jung
+      eric.jung&trw.com
+20
+  MIT
+    Jeffrey I. Shiller
+      jis&mit.edu
+21
+  EON
+    Michael Waters
+      ---none---
+22
+  Fibronics
+    Jakob Apelblat
+      jakob&fibronics.co.il
+23
+  Novell
+    Steve Bostock
+      steveb&novell.com
+24
+  Spider Systems
+    Peter Reid
+      peter&spider.co.uk
+25
+  NSFNET
+    Hans-Werner Braun
+      HWB&MCR.UMICH.EDU
+26
+  Hughes LAN Systems
+    Keith McCloghrie
+      KZM&HLS.COM
+27
+  Intergraph
+    Guy Streeter
+      guy&guy.bll.ingr.com
+28
+  Interlan
+    Bruce Taber
+      taber&europa.InterLan.COM
+29
+  Vitalink Communications
+    Bill Anderson
+      ---none---
+30
+  Ulana
+    Bill Anderson
+      wda&MITRE-BEDFORD.ORG
+31
+  NSWC
+    Matthew J. Curry
+      currymj&nswccd.navy.mil
+32
+  Santa Cruz Operation
+    Keith Reynolds
+      keithr&SCO.COM
+33
+  MRV Communications, In-Reach Product Division
+    Faith Szydlo
+      fszydlo&itouchcom.com
+34
+  Cray
+    Hunaid Engineer
+      hunaid&OPUS.CRAY.COM
+35
+  Nortel Networks
+    Glenn Waters
+      gww&nortelnetworks.com
+36
+  DEC
+    Ron Bhanukitsiri
+      rbhank&DECVAX.DEC.COM
+37
+  Touch
+    Brad Benson
+      ---none---
+38
+  Network Research Corp.
+    Bill Versteeg
+      bvs&NCR.COM
+39
+  Baylor College of Medicine
+    Stan Barber
+      SOB&BCM.TMC.EDU
+40
+  NMFECC-LLNL
+    Steven Hunter
+      hunter&CCC.MFECC.LLNL.GOV
+41
+  SRI
+    David Wolfe
+      ctabka&TSCA.ISTC.SRI.COM
+42
+  Sun Microsystems
+    Dennis Yaro
+      yaro&SUN.COM
+43
+  3Com
+    Jeremy Siegel
+      jzs&NSD.3Com.COM
+44
+  CMC
+    Dave Preston
+      ---none---
+45
+  SynOptics
+    Sharon Chisholm
+      schishol&nortelnetworks.com
+46
+  Cheyenne Software
+    Reijane Huai
+      sibal&CSD2.NYU.EDU
+47
+  Prime Computer
+    Mike Spina
+      WIZARD%enr.prime.com&RELAY.CS.NET
+48
+  MCNC/North Carolina
+    Data Network Ken Whitfield
+      ken&MCNC.ORG
+49
+  Chippcom
+    John Cook
+      cook&chipcom.com
+50
+  Optical Data Systems
+    Josh Fielk
+      ---none---
+51
+  gated
+    Sue Hares
+      snmp&nexthop.com
+52
+  Enterasys Networks Inc.
+    Charles N. McTague
+      cmctague&enterasys.com
+53
+  Apollo Computers
+    Jeffrey Buffun
+      jbuffum&APOLLO.COM
+54
+  DeskTalk Systems, Inc.
+    David Kaufman
+      ---none---
+55
+  SSDS
+    Ron Strich
+      ---none---
+56
+  Castle Rock Computing
+    John Sancho
+      ---none---
+57
+  MIPS Computer Systems
+    Charles Marker II
+      marker&MIPS.COM
+58
+  TGV, Inc.
+    Ken Adelman
+      Adelman&TGV.COM
+59
+  Silicon Graphics, Inc.
+    Michel Bourget
+      snmp_admin&sgi.com
+60
+  University of British Columbia
+    Hari Mailvaganam
+      hari.mailvaganam&ubc.ca
+61
+  Merit
+    Bill Norton
+      wbn&MERIT.EDU
+62
+  NetEdge
+    Dave Minnich
+      dave_minnich&netedge.com
+63
+  Apple Computer, Inc.
+    Gary LaVoy
+      ianaoid&apple.com
+64
+  Gandalf
+    Henry Kaijak
+      ---none---
+65
+  Dartmouth College
+    Scott Rea
+      Scott.Rea&dartmouth.edu
+66
+  David Systems
+    Kathryn de Graaf
+      degraaf&davidsys.com
+67
+  Reuter
+    Bob Zaniolo
+      ---none---
+68
+  Cornell
+    Laurie Collinsworth
+      ljc1&cornell.edu
+69
+  Michael Sabo
+    L. Michael Sabo
+      michael.sabo&cox.net
+70
+  Locus Computing Corp.
+    Arthur Salazar
+      lcc.arthur&SEAS.UCLA.EDU
+71
+  NASA
+    Philip Posey
+      Philip.E.Posey&nasa.gov
+72
+  Retix
+    Alex Martin
+      ---none---
+73
+  Boeing
+    John O'Meara
+      mib_contact&bandit.ns.cs.boeing.com
+74
+  AT&T
+    Domain Administrator
+      att-domains&att.com
+75
+  Ungermann-Bass
+    Didier Moretti
+      ---none---
+76
+  Digital Analysis Corporation
+    Skip Koppenhaver
+      stubby!skip&uunet.UU.NET
+77
+  LAN Manager
+    Doug Karl
+      KARL-D&OSU-20.IRCC.OHIO-STATE.EDU
+78
+  LogMatrix Inc (formerly 'OpenService Inc.')
+    Greg Moberg
+      techsupport&logmatrix.com
+79
+  Fujitsu Services
+    Steve Atherton
+      steve.atherton&uk.fujitsu.com
+80
+  Auspex Systems, Inc
+    Marc D. Behr
+      mbehr&auspex.com
+81
+  Lannet Company
+    Efrat Ramati
+      ---none---
+82
+  Network Computing Devices
+    Dave Mackie
+      lupine!djm&UUNET.UU.NET
+83
+  Raycom Systems
+    Bruce Willins
+      ---none---
+84
+  Pirelli Focom Ltd.
+    Sam Lau
+      ---none---
+85
+  Datability Software Systems
+    Larry Fischer
+      lfischer&dss.com
+86
+  Network Application Technology
+    Jim Kinder
+      jkinder&nat.com
+87
+  Institute of Telematics, Karlsruhe Institute of Technology (KIT)
+    Roland Bless
+      roland.bless&kit.edu
+88
+  New York University
+    Jimmy Kyriannis
+      jimmy.kyriannis&nyu.edu
+89
+  RND
+    Rina Nethaniel
+      ---none---
+90
+  InterCon Systems Corporation
+    Amanda Walker
+      AMANDA&INTERCON.COM
+91
+  Coral Network Corporation
+    Jason Perreault
+      jason&coral.com
+92
+  Webster Computer Corporation
+    Robert R. Elz
+      kre&munnari.oz.au
+93
+  Frontier Technologies Corporation
+    Prakash Ambegaonkar
+      ---none---
+94
+  Nokia
+    Petri Piira
+      petri.piira&nokia.com
+95
+  Rockwell Automation, Inc. (formerly 'Allen-Bradley Company')
+    Amir S. Ansari
+      asansari&ra.rockwell.com
+96
+  CERN
+    Frédéric Hemmer
+      Frederic.Hemmer&cern.ch
+97
+  Sigma Network Systems, Inc.
+    Ken Virgile
+      signet!ken&xylogics.COM
+98
+  Emerging Technologies, Inc.
+    Dennis E. Baasch
+      etinc!dennis&uu.psi.com
+99
+  SNMP Research
+    Jeffrey Case
+      case&SNMP.COM
+56521
+  Jesse Coretta
+    Jesse Coretta
+      jesse.coretta&icloud.com
+
+End of Document
